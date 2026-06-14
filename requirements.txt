@@ -1,0 +1,6 @@
+# Zależności Python dla skryptów ETL PowerDWH (Python 3.11)
+# Instalacja:  pip install -r requirements.txt
+pandas>=2.2
+pyodbc>=5.0
+requests>=2.32
+tzdata>=2024.1   # baza stref czasowych dla zoneinfo (Windows jej nie ma - wymagane przez DimTimeloader.py)

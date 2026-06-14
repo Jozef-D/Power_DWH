@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37203.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Power_DWH", "Power_DWH\Power_DWH.dtproj", "{339C9C30-1E7E-3117-7171-A606906287F2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Azure|Default = Azure|Default
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{339C9C30-1E7E-3117-7171-A606906287F2}.Azure|Default.ActiveCfg = Azure
+		{339C9C30-1E7E-3117-7171-A606906287F2}.Azure|Default.Build.0 = Azure
+		{339C9C30-1E7E-3117-7171-A606906287F2}.Development|Default.ActiveCfg = Development
+		{339C9C30-1E7E-3117-7171-A606906287F2}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8C7DD5F7-6555-4B58-9F40-28E806FE074A}
+	EndGlobalSection
+EndGlobal

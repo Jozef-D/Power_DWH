@@ -1,0 +1,37 @@
+PowerPlantName,category,installed_power,latitude,longitude,voivodeship
+Bełchatów,Węgiel brunatny,4680,51.267,19.317,łódzkie
+Chorzów,Węgiel kamienny,238,50.308,18.968,śląskie
+Dolna Odra,Węgiel kamienny,429,53.207,14.468,zachodniopomorskie
+EC Czechnica-2,Gaz ziemny,179,51.038,17.150,dolnośląskie
+EC Rzeszów,Gaz ziemny,141,50.065,22.031,podkarpackie
+EC Siekierki,Węgiel kamienny,650,52.187,21.091,mazowieckie
+EC Stalowa Wola,Gaz ziemny,450,50.552,22.081,podkarpackie
+EC Wrotków,Gaz ziemny,247,51.216,22.558,lubelskie
+EC Włocławek,Gaz ziemny,479,52.726,18.968,kujawsko-pomorskie
+EC Łódź-4,Węgiel kamienny,219,51.779,19.530,łódzkie
+EC Żerań 2,Gaz ziemny,488,52.295,20.996,mazowieckie
+Gryfino,Gaz ziemny,1340,53.207,14.468,zachodniopomorskie
+Jaworzno 2 JWCD,Węgiel kamienny,910,50.214,19.229,śląskie
+Jaworzno 3,Węgiel kamienny,1345,50.204,19.211,śląskie
+Karolin 2,Węgiel kamienny,212,52.436,16.989,wielkopolskie
+Katowice,Węgiel kamienny,135,50.285,19.051,śląskie
+Kozienice 1,Węgiel kamienny,1800,51.663,21.468,mazowieckie
+Kozienice 2,Węgiel kamienny,2216,51.663,21.468,mazowieckie
+Kraków Łęg,Węgiel kamienny,451,50.053,20.010,małopolskie
+Opole,Węgiel kamienny,3090,50.752,17.882,opolskie
+Ostrołęka B,Węgiel kamienny,625,53.104,21.162,mazowieckie
+Porąbka Żar,Woda,540,49.780,19.211,śląskie
+Połaniec,Węgiel kamienny,1674,50.438,21.337,świętokrzyskie
+Połaniec 2-Pasywna,Biomasa,225,50.438,21.337,świętokrzyskie
+Pątnów 2,Węgiel brunatny,474,52.301,18.235,wielkopolskie
+Płock,Gaz ziemny,630,52.586,19.673,mazowieckie
+Rybnik,Węgiel kamienny,835,50.135,18.523,śląskie
+Siersza,Węgiel kamienny,306,50.206,19.463,małopolskie
+Skawina,Węgiel kamienny,600,49.974,19.802,małopolskie
+Turów,Węgiel brunatny,1830,50.948,14.914,dolnośląskie
+Wrocław,Węgiel kamienny,311,51.124,17.024,dolnośląskie
+Zielona Góra,Gaz ziemny,198,51.951,15.489,lubuskie
+Zwartowo,Fotowoltaika,204,54.414,17.485,pomorskie
+Łagisza,Węgiel kamienny,460,50.350,19.142,śląskie
+Łaziska 3,Węgiel kamienny,905,50.134,18.846,śląskie
+Żarnowiec,Woda,716,54.432,18.045,pomorskie

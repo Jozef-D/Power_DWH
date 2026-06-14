@@ -1,0 +1,19 @@
+# --- Python ---
+__pycache__/
+*.pyc
+Python_scripts/.idea/
+Python_scripts/logs/
+
+# --- SSIS / Visual Studio (artefakty budowania) ---
+Power_DWH/obj/
+Power_DWH/bin/
+Power_DWH/_backup_dtsx/
+.vs/
+*.dtproj.user
+*.database
+
+# --- dane wrazliwe / lokalne ---
+# (klucze API trzymane w zmiennej srodowiskowej RAPIDAPI_KEY - nie w repo)
+
+# --- Power BI cache ---
+*.pbix.tmp
