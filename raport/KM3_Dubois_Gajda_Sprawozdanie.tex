@@ -200,9 +200,11 @@
 	\end{itemize}
 
 	\newpage
-	\section{Model hurtowni danych}
+	\section{Model fizyczny hurtowni danych}
 
 	Model hurtowni danych składa się z dwóch tabel wymiarów i trzech tabel faktów. Model ma charakter konstelacji faktów, ponieważ tabele \texttt{FactWeather}, \texttt{FactPowerPlantOutput} i \texttt{FactPolandEnergy} współdzielą wymiar czasu, a dwie pierwsze dodatkowo współdzielą wymiar elektrowni.
+
+	Model fizyczny został zaprojektowany i wdrożony w Microsoft SQL Server; jego pełną definicję (\texttt{CREATE TABLE} z typami danych, wymagalnością kolumn, kluczami głównymi \texttt{PRIMARY KEY}, kluczami obcymi \texttt{FOREIGN KEY} oraz indeksami) zawiera skrypt \texttt{sql\_help/00\_Create\_PowerDWH\_empty.sql}. Poniższe tabele odwzorowują ten model fizyczny: dla każdej kolumny podano nazwę, typ danych w SQL Server, wymagalność (\texttt{NOT NULL} oznacza kolumnę obowiązkową, \texttt{NULL} - opcjonalną) oraz znaczenie biznesowe. Klucze techniczne tabel faktów oraz \texttt{PowerPlantId} są generowane automatycznie (\texttt{IDENTITY}). Relacje między tabelami egzekwowane są na poziomie bazy kluczami obcymi: \texttt{FactWeather} i \texttt{FactPowerPlantOutput} odwołują się do \texttt{DimTime} (\texttt{TimeId}) oraz \texttt{DimPowerPlant} (\texttt{PowerPlantId}), a \texttt{FactPolandEnergy} - wyłącznie do \texttt{DimTime}.
 
 	\begin{figure}[h!]
 		\centering
@@ -246,19 +248,19 @@
 	\begin{table}[h!]
 		\centering
 		\small
-		\begin{tabularx}{\textwidth}{|p{3.3cm}|p{2.6cm}|X|}
+		\begin{tabularx}{\textwidth}{|p{3.1cm}|p{2.4cm}|p{2.5cm}|X|}
 			\hline
-			\textbf{Kolumna} & \textbf{Typ danych} & \textbf{Znaczenie} \\
+			\textbf{Kolumna} & \textbf{Typ danych} & \textbf{Wymagane?} & \textbf{Znaczenie} \\
 			\hline
-			\texttt{TimeId} & \texttt{BIGINT} & klucz główny wymiaru czasu (13-cyfrowy, deterministyczny) \\
+			\texttt{TimeId} & \texttt{BIGINT} & \texttt{NOT NULL} & klucz główny wymiaru czasu (13-cyfrowy, deterministyczny) \\
 			\hline
-			\texttt{timestamp} & \texttt{DATETIME} & pełna data i godzina wraz z minutami \\
+			\texttt{timestamp} & \texttt{DATETIME} & \texttt{NOT NULL} & pełna data i godzina wraz z minutami \\
 			\hline
-			\texttt{year}, \texttt{quarter\_year}, \texttt{month}, \texttt{week}, \texttt{day}, \texttt{hour}, \texttt{quarter\_hour} & \texttt{INT}/\texttt{TINYINT} & atrybuty kalendarzowe używane do agregacji i filtrowania \\
+			\texttt{year}, \texttt{quarter\_year}, \texttt{month}, \texttt{week}, \texttt{day}, \texttt{hour}, \texttt{quarter\_hour} & \texttt{INT}/\texttt{TINYINT} & \texttt{NOT NULL} & atrybuty kalendarzowe używane do agregacji i filtrowania \\
 			\hline
-			\texttt{dayOfWeek}, \texttt{isWeekend} & \texttt{TINYINT}/\texttt{BIT} & dzień tygodnia i oznaczenie weekendu \\
+			\texttt{dayOfWeek}, \texttt{isWeekend} & \texttt{TINYINT}/\texttt{BIT} & \texttt{NOT NULL} & dzień tygodnia i oznaczenie weekendu \\
 			\hline
-			\texttt{isExtraHourDay}, \texttt{isExtraHour}, \texttt{isMissingHourDay}, \texttt{isMissingHour} & \texttt{BIT} & obsługa zmiany czasu letniego i zimowego \\
+			\texttt{isExtraHourDay}, \texttt{isExtraHour}, \texttt{isMissingHourDay}, \texttt{isMissingHour} & \texttt{BIT} & \texttt{NOT NULL} & obsługa zmiany czasu letniego i zimowego \\
 			\hline
 		\end{tabularx}
 		\caption{Najważniejsze kolumny tabeli \texttt{DimTime}}
@@ -273,25 +275,25 @@
 	\begin{table}[h!]
 		\centering
 		\small
-		\begin{tabularx}{\textwidth}{|p{3.8cm}|p{2.4cm}|X|}
+		\begin{tabularx}{\textwidth}{|p{3.7cm}|p{2.2cm}|p{2.5cm}|X|}
 			\hline
-			\textbf{Kolumna} & \textbf{Typ danych} & \textbf{Znaczenie} \\
+			\textbf{Kolumna} & \textbf{Typ danych} & \textbf{Wymagane?} & \textbf{Znaczenie} \\
 			\hline
-			\texttt{PowerPlantId} & \texttt{INT} & klucz główny (\texttt{IDENTITY}) wymiaru elektrowni \\
+			\texttt{PowerPlantId} & \texttt{INT} & \texttt{NOT NULL} & klucz główny (\texttt{IDENTITY}) wymiaru elektrowni \\
 			\hline
-			\texttt{PowerPlantName} & \texttt{VARCHAR(100)} & nazwa elektrowni, traktowana jako klucz biznesowy \\
+			\texttt{PowerPlantName} & \texttt{VARCHAR(100)} & \texttt{NOT NULL} & nazwa elektrowni, traktowana jako klucz biznesowy \\
 			\hline
-			\texttt{category} & \texttt{VARCHAR(100)} & kategoria lub rodzaj paliwa podstawowego \\
+			\texttt{category} & \texttt{VARCHAR(100)} & \texttt{NOT NULL} & kategoria lub rodzaj paliwa podstawowego \\
 			\hline
-			\texttt{latitude}, \texttt{longitude} & \texttt{DECIMAL(9,6)} & współrzędne geograficzne wykorzystywane do pobierania pogody \\
+			\texttt{latitude}, \texttt{longitude} & \texttt{DECIMAL(9,6)} & \texttt{NULL} & współrzędne geograficzne wykorzystywane do pobierania pogody \\
 			\hline
-			\texttt{voivodeship} & \texttt{VARCHAR(100)} & województwo, przydatne w raportach regionalnych \\
+			\texttt{voivodeship} & \texttt{VARCHAR(100)} & \texttt{NOT NULL} & województwo, przydatne w raportach regionalnych \\
 			\hline
-			\texttt{validFrom}, \texttt{validTo}, \texttt{isValid} & \texttt{BIGINT}/\texttt{BIT} & pola obsługujące historię zmian w SCD typu 2 (\texttt{validFrom}/\texttt{validTo} jako \texttt{TimeId}) \\
+			\texttt{validFrom}, \texttt{validTo}, \texttt{isValid} & \texttt{BIGINT}/\texttt{BIT} & \texttt{validTo} \texttt{NULL}, pozostałe \texttt{NOT NULL} & pola obsługujące historię zmian w SCD typu 2 (\texttt{validFrom}/\texttt{validTo} jako \texttt{TimeId}); \texttt{validTo} puste dla wersji aktywnej \\
 			\hline
-			\texttt{installed\_power} & \texttt{INT} & moc zainstalowana lub osiągalna w MW \\
+			\texttt{installed\_power} & \texttt{INT} & \texttt{NOT NULL} & moc zainstalowana lub osiągalna w MW \\
 			\hline
-			\texttt{record\_creation\_date} & \texttt{BIGINT} & znacznik utworzenia rekordu w procesie ETL \\
+			\texttt{record\_creation\_date} & \texttt{BIGINT} & \texttt{NOT NULL} & znacznik utworzenia rekordu w procesie ETL \\
 			\hline
 		\end{tabularx}
 		\caption{Najważniejsze kolumny tabeli \texttt{DimPowerPlant}}
@@ -304,25 +306,25 @@
 	\begin{table}[H]
 		\centering
 		\small
-		\begin{tabularx}{\textwidth}{|p{4.3cm}|p{2.4cm}|X|}
+		\begin{tabularx}{\textwidth}{|p{4.0cm}|p{2.2cm}|p{2.5cm}|X|}
 			\hline
-			\textbf{Kolumna} & \textbf{Typ danych} & \textbf{Znaczenie} \\
+			\textbf{Kolumna} & \textbf{Typ danych} & \textbf{Wymagane?} & \textbf{Znaczenie} \\
 			\hline
-			\texttt{FactWeatherId} & \texttt{BIGINT} & techniczny klucz główny tabeli faktów \\
+			\texttt{FactWeatherId} & \texttt{BIGINT} & \texttt{NOT NULL} & techniczny klucz główny tabeli faktów (\texttt{IDENTITY}) \\
 			\hline
-			\texttt{PowerPlantId} & \texttt{INT} & klucz obcy do \texttt{DimPowerPlant} \\
+			\texttt{PowerPlantId} & \texttt{INT} & \texttt{NOT NULL} & klucz obcy do \texttt{DimPowerPlant} \\
 			\hline
-			\texttt{TimeId} & \texttt{BIGINT} & klucz obcy do \texttt{DimTime} \\
+			\texttt{TimeId} & \texttt{BIGINT} & \texttt{NOT NULL} & klucz obcy do \texttt{DimTime} \\
 			\hline
-			\texttt{temp}, \texttt{dew\_point}, \texttt{relative\_humidity\_pct} & \texttt{DECIMAL(4,1)} & temperatura, punkt rosy, wilgotność względna \\
+			\texttt{temp}, \texttt{dew\_point}, \texttt{relative\_humidity\_pct} & \texttt{DECIMAL(4,1)} & \texttt{NULL} & temperatura, punkt rosy, wilgotność względna \\
 			\hline
-			\texttt{precipitation} & \texttt{DECIMAL(4,1)} & opady \\
+			\texttt{precipitation} & \texttt{DECIMAL(4,1)} & \texttt{NULL} & opady \\
 			\hline
-			\texttt{wind\_direction}, \texttt{wind\_speed} & \texttt{DECIMAL(4,1)} & kierunek i prędkość wiatru \\
+			\texttt{wind\_direction}, \texttt{wind\_speed} & \texttt{DECIMAL(4,1)} & \texttt{NULL} & kierunek i prędkość wiatru \\
 			\hline
-			\texttt{pressure} & \texttt{DECIMAL(6,1)} & ciśnienie atmosferyczne \\
+			\texttt{pressure} & \texttt{DECIMAL(6,1)} & \texttt{NULL} & ciśnienie atmosferyczne \\
 			\hline
-			\texttt{weather\_code} & \texttt{INT} & kod zjawiska pogodowego \\
+			\texttt{weather\_code} & \texttt{INT} & \texttt{NULL} & kod zjawiska pogodowego \\
 			\hline
 		\end{tabularx}
 		\caption{Kolumny tabeli \texttt{FactWeather}}
@@ -335,17 +337,17 @@
 	\begin{table}[H]
 		\centering
 		\small
-		\begin{tabularx}{\textwidth}{|p{3.3cm}|p{2.4cm}|X|}
+		\begin{tabularx}{\textwidth}{|p{3.1cm}|p{2.2cm}|p{1.7cm}|X|}
 			\hline
-			\textbf{Kolumna} & \textbf{Typ danych} & \textbf{Znaczenie} \\
+			\textbf{Kolumna} & \textbf{Typ danych} & \textbf{Wymagalność} & \textbf{Znaczenie} \\
 			\hline
-			\texttt{FactPowerId} & \texttt{BIGINT} & techniczny klucz główny tabeli faktów \\
+			\texttt{FactPowerId} & \texttt{BIGINT} & \texttt{NOT NULL} & techniczny klucz główny tabeli faktów (\texttt{IDENTITY}) \\
 			\hline
-			\texttt{PowerPlantId} & \texttt{INT} & klucz obcy do wymiaru elektrowni \\
+			\texttt{PowerPlantId} & \texttt{INT} & \texttt{NOT NULL} & klucz obcy do wymiaru elektrowni \\
 			\hline
-			\texttt{TimeId} & \texttt{BIGINT} & klucz obcy do wymiaru czasu \\
+			\texttt{TimeId} & \texttt{BIGINT} & \texttt{NOT NULL} & klucz obcy do wymiaru czasu \\
 			\hline
-			\texttt{Power} & \texttt{FLOAT} & produkcja elektrowni w danym kwadransie \\
+			\texttt{Power} & \texttt{FLOAT} & \texttt{NOT NULL} & produkcja elektrowni w danym kwadransie \\
 			\hline
 		\end{tabularx}
 		\caption{Kolumny tabeli \texttt{FactPowerPlantOutput}}
@@ -358,23 +360,23 @@
 	\begin{table}[H]
 		\centering
 		\small
-		\begin{tabularx}{\textwidth}{|p{3.8cm}|p{2.4cm}|X|}
+		\begin{tabularx}{\textwidth}{|p{3.9cm}|p{2.4cm}|p{2.5cm}|X|}
 			\hline
-			\textbf{Kolumna} & \textbf{Typ danych} & \textbf{Znaczenie} \\
+			\textbf{Kolumna} & \textbf{Typ danych} & \textbf{Wymagane?} & \textbf{Znaczenie} \\
 			\hline
-			\texttt{FactNationwideDataId} & \texttt{BIGINT} & techniczny klucz główny tabeli faktów \\
+			\texttt{FactNationwideDataId} & \texttt{BIGINT} & \texttt{NOT NULL} & techniczny klucz główny tabeli faktów (\texttt{IDENTITY}) \\
 			\hline
-			\texttt{TimeId} & \texttt{BIGINT} & klucz obcy do wymiaru czasu \\
+			\texttt{TimeId} & \texttt{BIGINT} & \texttt{NOT NULL} & klucz obcy do wymiaru czasu \\
 			\hline
-			\texttt{cen\_cost}, \texttt{cor\_cost}, \texttt{ceb\_sr\_cost}, \texttt{sk\_cost\_power} & \texttt{DECIMAL(16,4)} & miary cenowe i kosztowe z danych PSE \\
+			\texttt{cen\_cost}, \texttt{cor\_cost}, \texttt{ceb\_sr\_cost}, \texttt{sk\_cost\_power} & \texttt{DECIMAL(16,4)} & \texttt{NULL} & miary cenowe i kosztowe z danych PSE \\
 			\hline
-			\texttt{cdsac\_cost} & \texttt{DECIMAL(16,4)} & cena energii z rynku Single Day-Ahead Coupling, w PLN/MWh \\
+			\texttt{cdsac\_cost} & \texttt{DECIMAL(16,4)} & \texttt{NULL} & cena energii z rynku Single Day-Ahead Coupling, w PLN/MWh \\
 			\hline
-			\texttt{balance\_power} & \texttt{DECIMAL(16,4)} & bilans mocy systemu (wartości dodatnie - nadwyżka, ujemne - deficyt) \\
+			\texttt{balance\_power} & \texttt{DECIMAL(16,4)} & \texttt{NULL} & bilans mocy systemu (wartości dodatnie - nadwyżka, ujemne - deficyt) \\
 			\hline
-			\texttt{rce\_cost} & \texttt{DECIMAL(16,4)} & rynkowa cena energii w PLN \\
+			\texttt{rce\_cost} & \texttt{DECIMAL(16,4)} & \texttt{NULL} & rynkowa cena energii w PLN \\
 			\hline
-			\texttt{load\_fcst}, \texttt{load\_actual} & \texttt{DECIMAL(16,4)} & prognozowane i rzeczywiste zapotrzebowanie krajowe \\
+			\texttt{load\_fcst}, \texttt{load\_actual} & \texttt{DECIMAL(16,4)} & \texttt{NULL} & prognozowane i rzeczywiste zapotrzebowanie krajowe \\
 			\hline
 		\end{tabularx}
 		\caption{Kolumny tabeli \texttt{FactPolandEnergy}}
@@ -431,6 +433,35 @@
 		\item \texttt{PostLoad\_checks.sql} - szybki test po załadowaniu: liczby wierszy, zakres dat, świeżość każdego faktu względem dnia poprzedniego (z tolerancją na kilkudniowy lag Meteostatu dla \texttt{FactWeather}), wykrywanie brakujących dni i dni o nietypowej liczbie kwadransów oraz elektrownie ze staging niedopasowane do wymiaru.
 	\end{itemize}
 	Kontrola jakości jest uzupełniona o audyt techniczny procesu ETL (schemat \texttt{audit}, sekcja \ref{sec:dq} wyżej w opisie orkiestracji), który rejestruje przebieg każdego biegu i pozwala powiązać wyniki reguł jakości z konkretnym uruchomieniem ładowania.
+
+	\subsection{Rezultaty analizy jakości danych}
+	\label{sec:dqresults}
+
+	Framework \texttt{DataQuality\_checks.sql} uruchomiono na załadowanej bazie. Wyniki zapisują się do tabeli \texttt{dq.CheckResults}, w której każda reguła otrzymuje liczbę naruszeń (\texttt{FailCount}) oraz automatyczny status PASS/FAIL (PASS, gdy \texttt{FailCount} $\le$ \texttt{Threshold}, domyślnie 0). Reguły pogrupowano w pięć wymiarów jakości; poniżej zebrano rezultaty analizy.
+
+	\begin{table}[H]
+		\centering
+		\small
+		\begin{tabularx}{\textwidth}{|p{2.6cm}|X|c|}
+			\hline
+			\textbf{Wymiar jakości} & \textbf{Zakres sprawdzeń i rezultat} & \textbf{Status} \\
+			\hline
+			Kompletność & Brak wierszy faktów bez żadnej miary (\texttt{FactWeather}, \texttt{FactPolandEnergy}); kompletność kluczy obcych. Reguła informacyjna wskazuje elektrownie z \texttt{category = unknown} (wysoki próg, nie blokuje raportu). & PASS \\
+			\hline
+			Unikalność & Brak zduplikowanych \texttt{TimeId} w \texttt{DimTime} i \texttt{FactPolandEnergy}; brak duplikatów pary (\texttt{PowerPlantId}, \texttt{TimeId}) w \texttt{FactWeather} i \texttt{FactPowerPlantOutput}; dokładnie jedna aktywna wersja każdej elektrowni w \texttt{DimPowerPlant}. & PASS \\
+			\hline
+			Poprawność & \texttt{quarter\_hour} wyłącznie ze zbioru \{0,15,30,45\}; pola kalendarzowe w zakresie; współrzędne elektrowni w granicach Polski; \texttt{installed\_power} $\ge$ 0; miary pogodowe w zakresach fizycznych; produkcja $\le$ 1,05 mocy zainstalowanej; brak ujemnego zapotrzebowania. Ujemna produkcja jednostek szczytowo-pompowych (tryb pompowania) jest rozpoznawana jako poprawna (reguła informacyjna). & PASS \\
+			\hline
+			Spójność & Integralność referencyjna \texttt{TimeId}/\texttt{PowerPlantId} oraz poprawność okresów SCD2 (brak nakładających się wersji). & PASS \\
+			\hline
+			Aktualność & Najświeższe dane \texttt{FactPowerPlantOutput} i \texttt{FactWeather} nie starsze niż 60 dni. Dla \texttt{FactWeather} uwzględniono kilkudniowe opóźnienie publikacji Meteostatu - świeżość mierzona jest z tolerancją, dzięki czemu lag źródła nie generuje fałszywych alarmów. & PASS \\
+			\hline
+		\end{tabularx}
+		\caption{Rezultaty analizy jakości danych wg wymiarów (\texttt{DataQuality\_checks.sql})}
+		\label{tab:dqresults}
+	\end{table}
+
+	\noindent Wnioski z analizy jakości: wszystkie twarde reguły (próg 0) zakończyły się statusem PASS, co potwierdza poprawność kluczy, integralność referencyjną, prawidłową obsługę SCD2 oraz zgodność miar z zakresami fizycznymi. Reguły informacyjne (wysoki próg) nie blokują raportu, lecz uwidaczniają zjawiska wymagające interpretacji biznesowej - przede wszystkim ujemną produkcję elektrowni szczytowo-pompowych w trybie pompowania oraz pojedyncze elektrownie o nieustalonej kategorii. Skuteczność samych reguł (czy faktycznie wykrywają złe dane) potwierdza negatywny test na danych syntetycznych opisany w sekcji \ref{sec:synttest}.
 
 	\subsection{Test poprawności działania na danych syntetycznych}
 	\label{sec:synttest}
@@ -547,6 +578,35 @@
 		\item atrybuty historyczne SCD2: data ważności rekordu, data końca ważności i flaga aktywności rekordu.
 	\end{itemize}
 
+	\section{Warstwa raportowa}
+	\label{sec:reportlayer}
+
+	Warstwa raportowa została zbudowana w Microsoft Power BI (plik \texttt{business.pbix}) i stanowi semantyczny model biznesowy nadbudowany nad fizycznym modelem hurtowni.
+
+	\subsection{Dostęp do danych}
+	Model Power BI zasilany jest z hurtowni Microsoft SQL Server w trybie importu (\textit{Import}): dane tabel wymiarów i faktów są ładowane do wewnętrznego silnika VertiPaq, dzięki czemu raport działa wydajnie i niezależnie od bieżącej dostępności bazy. Odświeżenie modelu powtórnie pobiera aktualny zakres danych z hurtowni. Granice województw wczytywane są z pliku \texttt{poland\_voivodeships\_pl.geojson} jako warstwa map.
+
+	\subsection{Model biznesowy danych}
+	Model w Power BI odwzorowuje konstelację faktów z hurtowni - wymiary \texttt{DimTime} i \texttt{DimPowerPlant} są połączone relacjami \textit{jeden-do-wielu} z tabelami faktów \texttt{FactWeather}, \texttt{FactPowerPlantOutput} (oba wymiary) oraz \texttt{FactPolandEnergy} (tylko czas). Kierunek filtrowania relacji jest jednokierunkowy (od wymiaru do faktu). Model uzupełniają dwie tabele pomocnicze realizujące warstwę pojęć biznesowych:
+	\begin{itemize}
+		\item \texttt{Paliwa} - słownik grupujący techniczne kategorie elektrowni w czytelne rodzaje paliwa (Biomasa, Fotowoltaika, Gaz ziemny, Węgiel brunatny, Węgiel kamienny, Woda), używany jako wspólny wymiar opisowy i w legendach,
+		\item \texttt{Czynnik pogodowy} - tabela miar DAX skupiająca autorskie wskaźniki biznesowe (m.in. \texttt{Współczynnik wykorzystania}, \texttt{Błąd prognozy (MW)}, \texttt{Moc floty}, \texttt{Średnia moc}).
+	\end{itemize}
+	Nazwy tabel, kolumn i miar zostały spolszczone i nadano im czytelne etykiety biznesowe (np. \textit{Okres}, \textit{Kategoria}, \textit{Czy weekend}, \textit{Średnia moc}), tak aby użytkownik raportu operował pojęciami dziedzinowymi, a nie nazwami technicznymi z bazy.
+
+	\subsection{Hierarchie}
+	W warstwie raportowej zdefiniowano hierarchię czasu \textit{miesiąc $\rightarrow$ tydzień $\rightarrow$ dzień tygodnia $\rightarrow$ godzina}, umożliwiającą drążenie (drill-down) na wykresach trendów (strony \textit{Przegląd}, \textit{Rynek i bilansowanie}, \textit{Wzorce czasowe}). Wykorzystywane są też naturalne hierarchie przestrzenne i przedmiotowe: województwo $\rightarrow$ elektrownia oraz rodzaj paliwa $\rightarrow$ elektrownia, używane do agregacji i filtrowania krzyżowego map i wykresów słupkowych.
+
+	\subsection{Transformacje w obrębie warstwy raportowej}
+	Część logiki obliczana jest dopiero w modelu Power BI (warstwa raportowa), bez modyfikowania hurtowni:
+	\begin{itemize}
+		\item \textbf{Miary DAX}: \texttt{Współczynnik wykorzystania} = \texttt{Power}/\texttt{installed\_power}, \texttt{Błąd prognozy (MW)} = \texttt{load\_actual} $-$ \texttt{load\_fcst} oraz jego wariant procentowy, \texttt{Moc floty} i \texttt{Średnia moc} w przekroju kraju i województwa;
+		\item \textbf{Przeniesienie kontekstu między faktami}: miara \texttt{Średnia moc wg pogody} używa funkcji \texttt{TREATAS}, aby kontekst pomiaru z \texttt{FactWeather} (\texttt{TimeId}, \texttt{PowerPlantId}) przenieść na wymiary i poprawnie powiązać średnią produkcję z koszem pogodowym mimo jednokierunkowych relacji;
+		\item \textbf{Grupowanie (binning)}: przedziały temperatury i punktu rosy (co 2\,°C) oraz prędkości wiatru (co 1\,m/s) utworzone mechanizmem grupowania Power BI na potrzeby strony \textit{Pogoda a moc (kosze)};
+		\item \textbf{Grupowanie kategorii} w czytelne rodzaje paliwa za pomocą tabeli \texttt{Paliwa};
+		\item \textbf{Formatowanie i jednostki}: opisy osi (°C, m/s, MW, PLN), przycięcie osi prędkości wiatru do 40\,m/s w celu pominięcia wartości odstających.
+	\end{itemize}
+
 	\section{Raporty dla użytkowników (Power BI)}
 
 	\noindent Warstwa raportowa została zaimplementowana w pliku \texttt{business.pbix} jako siedem powiązanych stron. Model danych w Power BI odwzorowuje konstelację faktów z hurtowni i jest uzupełniony o dwie tabele pomocnicze: \texttt{Paliwa} (grupowanie kategorii elektrowni: Biomasa, Fotowoltaika, Gaz ziemny, Węgiel brunatny, Węgiel kamienny, Woda) oraz \texttt{Czynnik pogodowy} (tabela miar DAX, m.in. \texttt{Współczynnik wykorzystania} i \texttt{Błąd prognozy (MW)}). Nawigację ułatwiają wspólne fragmentatory (zakres dat, kategoria elektrowni). Poniżej opisano poszczególne strony wraz z tytułami wizualizacji.
@@ -658,9 +718,50 @@
 	\medskip
 	\noindent Kontrola jakości i kompletności ładowań realizowana jest w warstwie SQL (tabela \texttt{dq.CheckResults} oraz schemat \texttt{audit}, sekcja \ref{sec:dq}), niezależnie od raportów analitycznych Power BI.
 
+	\section{Podsumowanie i ocena rozwiązania z perspektywy biznesowej}
+
+	Zrealizowane rozwiązanie spełnia założony cel biznesowy: dostarcza zintegrowane, spójne czasowo źródło danych o pogodzie, produkcji elektrowni oraz krajowym rynku energii, a także gotową warstwę raportową pozwalającą analizować wpływ warunków pogodowych na pracę systemu elektroenergetycznego.
+
+	\subsection{Osiągnięte rezultaty}
+	\begin{itemize}
+		\item \textbf{Integracja danych} - trzy heterogeniczne źródła (PSE API, Meteostat API, plik metadanych elektrowni) sprowadzono do wspólnego ziarna kwadransowego w jednym modelu wymiarowym, eliminując ręczne łączenie danych z różnych API.
+		\item \textbf{Automatyzacja} - cykliczny, parametryzowany proces ETL (orkiestrator \texttt{load\_range.py} / pakiet \texttt{Master.dtsx}, harmonogram Windows) odświeża dane bez udziału użytkownika i loguje każdy bieg do schematu \texttt{audit}.
+		\item \textbf{Wiarygodność} - framework jakości danych (pięć wymiarów, sekcja \ref{sec:dqresults}) oraz odwracalny test na danych syntetycznych (16/16 PASS, sekcja \ref{sec:synttest}) potwierdzają poprawność kluczowych mechanizmów (SCD2, obsługa zmiany czasu, integralność referencyjna, wykrywalność błędów).
+		\item \textbf{Wartość analityczna} - siedmiostronicowy raport Power BI z autorskimi miarami DAX (m.in. współczynnik wykorzystania, błąd prognozy, średnia moc wg pogody) umożliwia analizę sezonowości, jakości prognozy zapotrzebowania oraz zależności produkcji od temperatury, ciśnienia i wiatru w przekroju elektrowni, paliwa i województwa.
+	\end{itemize}
+
+	\subsection{Korzyści biznesowe}
+	Z punktu widzenia odbiorcy rozwiązanie skraca czas dostępu do zintegrowanych danych, ogranicza pracochłonność i ryzyko błędu przy ręcznym pozyskiwaniu danych, a także umożliwia powtarzalne, samoobsługowe raportowanie dla analityków rynku energii, zespołów prognozowania i planowania produkcji oraz kadry zarządzającej. Modularna, parametryzowana architektura warstwowa (Python - staging - SSIS - hurtownia - Power BI) jest łatwa w utrzymaniu i przenoszeniu na inne środowisko oraz gotowa do rozszerzenia o kolejne źródła i miary.
+
+	\subsection{Ograniczenia i kierunki rozwoju}
+	Głównym ograniczeniem jest kilkudniowe opóźnienie publikacji danych pogodowych przez Meteostat (uwzględnione w kontroli aktualności) oraz zależność od stabilności i limitów API źródeł. Naturalne kierunki rozwoju to: dodanie modeli predykcyjnych (np. prognozy produkcji OZE na podstawie pogody), rozszerzenie wymiaru pogody o dane prognostyczne oraz wzbogacenie metadanych elektrowni o kolejne atrybuty techniczne.
+
+	\section{Podział pracy w zespole}
+
+	Projekt zrealizował dwuosobowy zespół \textit{Neandertalczycy SQLa}: Jozef Dubois i Stefan Gajda. Pracę podzielono wg warstw rozwiązania, przy czym kluczowe decyzje architektoniczne, projekt modelu wymiarowego oraz testy końcowe były wspólne.
+
+	\begin{table}[H]
+		\centering
+		\small
+		\begin{tabularx}{\textwidth}{|p{3.6cm}|X|}
+			\hline
+			\textbf{Osoba} & \textbf{Zakres odpowiedzialności} \\
+			\hline
+			\textbf{Jozef Dubois} & Warstwa pozyskiwania i przetwarzania danych: skrypty ekstrakcji i transformacji w Pythonie (\texttt{extract\_*.py}, \texttt{DimTimeloader.py}), warstwa staging, model fizyczny hurtowni (DDL, klucze, indeksy), ładowanie w SSIS (w tym SCD2 elektrowni i obsługa zmiany czasu), orkiestracja i audyt biegów ETL. \\
+			\hline
+			\textbf{Stefan Gajda} & Warstwa raportowa i jakość danych: model biznesowy oraz miary DAX w Power BI, siedem stron raportu i wizualizacje, hierarchie i interaktywność, framework kontroli jakości danych (\texttt{DataQuality\_checks.sql}, \texttt{PostLoad\_checks.sql}) oraz test na danych syntetycznych (\texttt{SyntheticData\_test.sql}). \\
+			\hline
+			\textbf{Wspólnie} & Koncepcja i cel biznesowy, projekt modelu wymiarowego (konstelacja faktów), mapowania STTM, weryfikacja end-to-end oraz dokumentacja i sprawozdanie. \\
+			\hline
+		\end{tabularx}
+		\caption{Podział pracy w zespole}
+	\end{table}
+
 	\section{Załączniki}
 
-	Do raportu dołączone są artefakty implementacji znajdujące się w repozytorium projektu:
+	Kod źródłowy oraz wszystkie artefakty projektu dostępne są w repozytorium GitHub: \texttt{https://github.com/Jozef-D/Power\_DWH}.
+
+	\noindent Do raportu dołączone są artefakty implementacji znajdujące się w repozytorium projektu:
 	\begin{itemize}
 		\item \textbf{Skrypt modelu hurtowni}: \texttt{sql\_help/00\_Create\_PowerDWH\_empty.sql} - baza, schematy \texttt{etl}/\texttt{stg}, tabele wymiarów, faktów i staging, klucze obce, indeksy oraz procedura \texttt{etl.usp\_Load\_DimPowerPlant} (jej aktualna wersja również w \texttt{SCD\_2\_DimPowerPlant.sql}).
 		\item \textbf{Skrypty kontroli jakości i audytu}: \texttt{sql\_help/DataQuality\_checks.sql}, \texttt{sql\_help/PostLoad\_checks.sql} oraz \texttt{sql\_help/Audit\_setup.sql} (schemat \texttt{audit}: \texttt{EtlRun}/\texttt{EtlStep}, widok \texttt{vLastRun}).

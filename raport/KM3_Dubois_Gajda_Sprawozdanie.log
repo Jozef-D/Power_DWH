@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.1.29)  15 JUN 2026 09:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.1.29)  15 JUN 2026 10:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -359,456 +359,664 @@ lektrowni i
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 238--238
+Underfull \hbox (badness 2005) in paragraph at lines 207--208
+[]\T1/cmr/m/n/12 Model fizyczny zostaª zaprojektowany i wdro»ony w Microsoft SQ
+L Server; jego
+ []
+
+
+Underfull \hbox (badness 4531) in paragraph at lines 207--208
+\T1/cmr/m/n/12 peªn¡ definicj¦ (\T1/cmtt/m/n/12 CREATE TABLE \T1/cmr/m/n/12 z t
+ypami danych, wymagalno±ci¡ kolumn, kluczami
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--240
 []|\T1/cmr/m/n/10.95 jeden rekord dla
  []
 
 
-Underfull \hbox (badness 4144) in paragraph at lines 238--238
+Underfull \hbox (badness 4144) in paragraph at lines 240--240
 []|\T1/cmr/m/n/10.95 Wymiar czasu zawieraj¡cy dat¦,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 238--238
+Underfull \hbox (badness 10000) in paragraph at lines 240--240
 \T1/cmr/m/n/10.95 godzin¦, kwadrans, elementy
  []
 
 
-Underfull \hbox (badness 1596) in paragraph at lines 238--238
+Underfull \hbox (badness 1596) in paragraph at lines 240--240
 \T1/cmr/m/n/10.95 kalendarza oraz flagi weekendu i
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 238--238
+Underfull \hbox (badness 10000) in paragraph at lines 240--240
 []|\T1/cmr/m/n/10.95 wymiar
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 238--238
+Underfull \hbox (badness 10000) in paragraph at lines 240--240
 []|\T1/cmr/m/n/10.95 Wymiar elektrowni z nazw¡,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 238--238
+Underfull \hbox (badness 10000) in paragraph at lines 240--240
 \T1/cmr/m/n/10.95 kategori¡, wspóªrz¦dnymi,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 238--238
+Underfull \hbox (badness 10000) in paragraph at lines 240--240
 []|\T1/cmr/m/n/10.95 godzina $\OMS/cmsy/m/n/10.95 ^^B$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 238--238
+Underfull \hbox (badness 10000) in paragraph at lines 240--240
 []|\T1/cmr/m/n/10.95 Dane pogodowe dla lokalizacji
  []
 
 
-Underfull \hbox (badness 3746) in paragraph at lines 238--238
+Underfull \hbox (badness 3746) in paragraph at lines 240--240
 \T1/cmr/m/n/10.95 elektrowni pobrane z Meteostat,
  []
 
 
-Overfull \hbox (5.04688pt too wide) in paragraph at lines 238--238
+Overfull \hbox (5.04688pt too wide) in paragraph at lines 240--240
 []|\T1/cmtt/m/n/10.95 FactPowerPlantOutput| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 238--238
+Underfull \hbox (badness 10000) in paragraph at lines 240--240
 []|\T1/cmr/m/n/10.95 kwadrans $\OMS/cmsy/m/n/10.95 ^^B$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 238--238
+Underfull \hbox (badness 10000) in paragraph at lines 240--240
 []|\T1/cmr/m/n/10.95 Dane ogólnokrajowe: ceny,
  []
 
 
-Underfull \hbox (badness 5954) in paragraph at lines 238--238
+Underfull \hbox (badness 5954) in paragraph at lines 240--240
 \T1/cmr/m/n/10.95 bilans mocy oraz prognozowane
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 263--263
-[]|\T1/cmr/m/n/10.95 klucz gªówny wymiaru czasu (13-cyfrowy,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 263--263
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
 []|\T1/cmtt/m/n/10.95 year\T1/cmr/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 263--263
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
 \T1/cmtt/m/n/10.95 quarter_year\T1/cmr/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 263--263
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
 \T1/cmtt/m/n/10.95 month\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 week\T1/cmr/m/n/
 10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 263--263
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
 \T1/cmtt/m/n/10.95 day\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 hour\T1/cmr/m/n/10
 .95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 263--263
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
+[]|\T1/cmr/m/n/10.95 atrybuty kalendarzowe u»ywane do
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
 []|\T1/cmtt/m/n/10.95 dayOfWeek\T1/cmr/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 263--263
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
 []|\T1/cmtt/m/n/10.95 isExtraHourDay\T1/cmr/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 263--263
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
 \T1/cmtt/m/n/10.95 isExtraHour\T1/cmr/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 263--263
+Overfull \hbox (5.35632pt too wide) in paragraph at lines 265--265
 \T1/cmtt/m/n/10.95 isMissingHourDay\T1/cmr/m/n/10.95 ,
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Underfull \hbox (badness 10000) in paragraph at lines 298--298
+[]|\T1/cmr/bx/n/10.95 Typ
+ []
 
-[7]
-Underfull \hbox (badness 4229) in paragraph at lines 296--296
+
+Underfull \hbox (badness 10000) in paragraph at lines 298--298
+[]|\T1/cmr/m/n/10.95 klucz gªówny (\T1/cmtt/m/n/10.95 IDENTITY\T1/cmr/m/n/10.95
+ ) wymiaru
+ []
+
+
+Overfull \hbox (5.30449pt too wide) in paragraph at lines 298--298
+[]|\T1/cmtt/m/n/10.95 VARCHAR(100)| 
+ []
+
+
+Overfull \hbox (5.30449pt too wide) in paragraph at lines 298--298
+[]|\T1/cmtt/m/n/10.95 VARCHAR(100)| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 298--298
+[]|\T1/cmr/m/n/10.95 kategoria lub rodzaj paliwa
+ []
+
+
+Overfull \hbox (5.30449pt too wide) in paragraph at lines 298--298
+[]|\T1/cmtt/m/n/10.95 DECIMAL(9,6)| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 298--298
+[]|\T1/cmr/m/n/10.95 wspóªrz¦dne geograficzne
+ []
+
+
+Overfull \hbox (5.30449pt too wide) in paragraph at lines 298--298
+[]|\T1/cmtt/m/n/10.95 VARCHAR(100)| 
+ []
+
+
+Underfull \hbox (badness 2213) in paragraph at lines 298--298
+[]|\T1/cmr/m/n/10.95 województwo, przydatne w raportach
+ []
+
+
+Underfull \hbox (badness 1107) in paragraph at lines 298--298
 []|\T1/cmtt/m/n/10.95 validFrom\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 validTo\T
 1/cmr/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 5288) in paragraph at lines 296--296
-[]|\T1/cmr/m/n/10.95 pola obsªuguj¡ce histori¦ zmian w SCD typu 2
+Underfull \hbox (badness 3568) in paragraph at lines 298--298
+\T1/cmr/m/n/10.95 pozostaªe \T1/cmtt/m/n/10.95 NOT
  []
 
 
-Overfull \hbox (5.04688pt too wide) in paragraph at lines 296--296
+Underfull \hbox (badness 10000) in paragraph at lines 298--298
+[]|\T1/cmr/m/n/10.95 pola obsªuguj¡ce histori¦ zmian w
+ []
+
+
+Underfull \hbox (badness 6063) in paragraph at lines 298--298
+\T1/cmtt/m/n/10.95 TimeId\T1/cmr/m/n/10.95 ); \T1/cmtt/m/n/10.95 validTo \T1/cm
+r/m/n/10.95 puste dla wersji
+ []
+
+
+Overfull \hbox (7.89232pt too wide) in paragraph at lines 298--298
 []|\T1/cmtt/m/n/10.95 record_creation_date| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--327
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 329--329
+[]|\T1/cmr/bx/n/10.95 Typ
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 329--329
 []|\T1/cmtt/m/n/10.95 temp\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 dew_point\T1/c
 mr/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--327
+Overfull \hbox (5.01477pt too wide) in paragraph at lines 329--329
+\T1/cmtt/m/n/10.95 relative_humidity_pct| 
+ []
+
+
+Overfull \hbox (5.30449pt too wide) in paragraph at lines 329--329
+[]|\T1/cmtt/m/n/10.95 DECIMAL(4,1)| 
+ []
+
+
+Overfull \hbox (5.30449pt too wide) in paragraph at lines 329--329
+[]|\T1/cmtt/m/n/10.95 DECIMAL(4,1)| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 329--329
 []|\T1/cmtt/m/n/10.95 wind_direction\T1/cmr/m/n/10.95 ,
  []
 
+
+Overfull \hbox (5.30449pt too wide) in paragraph at lines 329--329
+[]|\T1/cmtt/m/n/10.95 DECIMAL(4,1)| 
+ []
+
+
+Overfull \hbox (5.30449pt too wide) in paragraph at lines 329--329
+[]|\T1/cmtt/m/n/10.95 DECIMAL(6,1)| 
+ []
+
 [8]
-Overfull \hbox (5.04688pt too wide) in paragraph at lines 379--379
+Underfull \hbox (badness 10000) in paragraph at lines 352--352
+[]|\T1/cmr/bx/n/10.95 Typ
+ []
+
+
+Overfull \hbox (26.12302pt too wide) in paragraph at lines 352--352
+[]|\T1/cmr/bx/n/10.95 Wymagalno±¢| 
+ []
+
+[9]
+Overfull \hbox (2.20186pt too wide) in paragraph at lines 381--381
 []|\T1/cmtt/m/n/10.95 FactNationwideDataId| 
  []
 
 
-Underfull \hbox (badness 4229) in paragraph at lines 379--379
+Underfull \hbox (badness 10000) in paragraph at lines 381--381
 []|\T1/cmtt/m/n/10.95 cen_cost\T1/cmr/m/n/10.95 , \T1/cmtt/m/n/10.95 cor_cost\T
 1/cmr/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 379--379
+Underfull \hbox (badness 10000) in paragraph at lines 381--381
 \T1/cmtt/m/n/10.95 ceb_sr_cost\T1/cmr/m/n/10.95 ,
  []
 
 
-Overfull \hbox (5.27238pt too wide) in paragraph at lines 379--379
+Overfull \hbox (5.27238pt too wide) in paragraph at lines 381--381
 []|\T1/cmtt/m/n/10.95 DECIMAL(16,4)| 
  []
 
 
-Overfull \hbox (5.27238pt too wide) in paragraph at lines 379--379
+Overfull \hbox (5.27238pt too wide) in paragraph at lines 381--381
 []|\T1/cmtt/m/n/10.95 DECIMAL(16,4)| 
  []
 
 
-Overfull \hbox (5.27238pt too wide) in paragraph at lines 379--379
+Overfull \hbox (5.27238pt too wide) in paragraph at lines 381--381
 []|\T1/cmtt/m/n/10.95 DECIMAL(16,4)| 
  []
 
 
-Overfull \hbox (5.27238pt too wide) in paragraph at lines 379--379
+Underfull \hbox (badness 10000) in paragraph at lines 381--381
+[]|\T1/cmr/m/n/10.95 bilans mocy systemu (warto±ci
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 381--381
+\T1/cmr/m/n/10.95 dodatnie - nadwy»ka, ujemne -
+ []
+
+
+Overfull \hbox (5.27238pt too wide) in paragraph at lines 381--381
 []|\T1/cmtt/m/n/10.95 DECIMAL(16,4)| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 379--379
+Underfull \hbox (badness 10000) in paragraph at lines 381--381
 []|\T1/cmtt/m/n/10.95 load_fcst\T1/cmr/m/n/10.95 ,
  []
 
 
-Overfull \hbox (5.27238pt too wide) in paragraph at lines 379--379
+Overfull \hbox (5.27238pt too wide) in paragraph at lines 381--381
 []|\T1/cmtt/m/n/10.95 DECIMAL(16,4)| 
  []
 
-[9]
-Underfull \hbox (badness 1132) in paragraph at lines 389--390
+
+Underfull \hbox (badness 10000) in paragraph at lines 381--381
+[]|\T1/cmr/m/n/10.95 prognozowane i rzeczywiste
+ []
+
+[10]
+Underfull \hbox (badness 1132) in paragraph at lines 391--392
 \T1/cmr/m/n/12 Ka»dy skrypt obsªuguje paginacj¦ PSE oraz parametryzowany zakres
  dat (\T1/cmtt/m/n/12 DATE_FROM\T1/cmr/m/n/12 ,
  []
 
 
-Underfull \hbox (badness 1215) in paragraph at lines 393--394
+Underfull \hbox (badness 1215) in paragraph at lines 395--396
 []\T1/cmtt/m/n/12 extract_power_output.py \T1/cmr/m/n/12 - pobiera generacj¦ je
 dnostek z \T1/cmtt/m/n/12 gen-jw \T1/cmr/m/n/12 i zapisuje do
  []
 
 
-Underfull \hbox (badness 4036) in paragraph at lines 399--400
+Underfull \hbox (badness 4036) in paragraph at lines 401--402
 \T1/cmr/m/n/12 Skrypty Python ªaduj¡ dane do tabel schematu \T1/cmtt/m/n/12 stg
  \T1/cmr/m/n/12 (\T1/cmtt/m/n/12 PowerPlant\T1/cmr/m/n/12 , \T1/cmtt/m/n/12 Pol
 andEnergy\T1/cmr/m/n/12 ,
  []
 
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 420--421
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 422--423
 []\T1/cmtt/m/n/12 Master.dtsx \T1/cmr/m/n/12 orkiestruje pakiety SSIS: \T1/cmtt
 /m/n/12 Load_DimPowerPlant\T1/cmr/m/n/12 , a po jego
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 420--421
+Underfull \hbox (badness 10000) in paragraph at lines 422--423
 \T1/cmr/m/n/12 sukcesie - równolegle \T1/cmtt/m/n/12 Load_FactPolandEnergy\T1/c
 mr/m/n/12 , \T1/cmtt/m/n/12 Load_FactPowerPlantOutput \T1/cmr/m/n/12 i
  []
 
 
-Underfull \hbox (badness 6445) in paragraph at lines 422--423
+Underfull \hbox (badness 6445) in paragraph at lines 424--425
 \T1/cmr/m/n/12 czas trwania, liczby wierszy oraz ewentualne komunikaty bª¦dów. 
 Widok
  []
 
 
-Underfull \hbox (badness 6995) in paragraph at lines 423--424
+Underfull \hbox (badness 6995) in paragraph at lines 425--426
 []\T1/cmr/bx/n/12 Parametryzacja\T1/cmr/m/n/12 : pakiety SSIS u»ywaj¡ parametró
 w projektu (\T1/cmtt/m/n/12 ServerName\T1/cmr/m/n/12 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 430--431
+Underfull \hbox (badness 10000) in paragraph at lines 432--433
 []\T1/cmtt/m/n/12 DataQuality_checks.sql \T1/cmr/m/n/12 - framework reguª w wym
 iarach: Kompletno±¢,
  []
 
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 438--439
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 459--459
+[]|\T1/cmr/bx/n/10.95 Wymiar
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 459--459
+[]|\T1/cmr/m/n/10.95 Brak wierszy faktów bez »adnej miary (\T1/cmtt/m/n/10.95 F
+actWeather\T1/cmr/m/n/10.95 ,
+ []
+
+
+Underfull \hbox (badness 4846) in paragraph at lines 459--459
+[]|\T1/cmr/m/n/10.95 Brak zduplikowanych \T1/cmtt/m/n/10.95 TimeId \T1/cmr/m/n/
+10.95 w \T1/cmtt/m/n/10.95 DimTime \T1/cmr/m/n/10.95 i \T1/cmtt/m/n/10.95 FactP
+olandEnergy\T1/cmr/m/n/10.95 ;
+ []
+
+
+Underfull \hbox (badness 1242) in paragraph at lines 459--459
+\T1/cmr/m/n/10.95 brak duplikatów pary (\T1/cmtt/m/n/10.95 PowerPlantId\T1/cmr/
+m/n/10.95 , \T1/cmtt/m/n/10.95 TimeId\T1/cmr/m/n/10.95 ) w \T1/cmtt/m/n/10.95 F
+actWeather \T1/cmr/m/n/10.95 i
+ []
+
+
+Underfull \hbox (badness 3158) in paragraph at lines 459--459
+\T1/cmtt/m/n/10.95 FactPowerPlantOutput\T1/cmr/m/n/10.95 ; dokªadnie jedna akty
+wna wersja ka»dej
+ []
+
+
+Underfull \hbox (badness 3930) in paragraph at lines 459--459
+[]|\T1/cmr/m/n/10.95 Integralno±¢ referencyjna \T1/cmtt/m/n/10.95 TimeId\T1/cmr
+/m/n/10.95 /\T1/cmtt/m/n/10.95 PowerPlantId \T1/cmr/m/n/10.95 oraz poprawno±¢
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 469--470
 \T1/cmr/m/n/12 Aby udowodni¢ poprawne dziaªanie hurtowni \T1/cmr/m/it/12 niezal
 e»nie \T1/cmr/m/n/12 od dost¦pno±ci ¹ródeª
  []
 
 
-Underfull \hbox (badness 1400) in paragraph at lines 446--447
+Underfull \hbox (badness 1400) in paragraph at lines 477--478
 \T1/cmr/m/n/12 przekraczaj¡ca moc zainstalowan¡, nakªadaj¡ce si¦ wersje SCD) s¡
  przez reguªy
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 475--475
-[]\T1/cmr/m/n/12 Table 8: Wynik testu poprawno±ci dziaªania na danych syntetycz
+Underfull \hbox (badness 10000) in paragraph at lines 506--506
+[]\T1/cmr/m/n/12 Table 9: Wynik testu poprawno±ci dziaªania na danych syntetycz
 nych
  []
 
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 500--500
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 531--531
 []|\T1/cmr/m/n/10.95 PSE \T1/cmtt/m/n/10.95 gen-jw \T1/cmr/m/n/10.95 +
  []
 
 
-Overfull \hbox (5.07896pt too wide) in paragraph at lines 500--500
+Overfull \hbox (5.07896pt too wide) in paragraph at lines 531--531
 \T1/cmtt/m/n/10.95 powerplant_meta.csv| 
  []
 
 
-Underfull \hbox (badness 5802) in paragraph at lines 500--500
+Underfull \hbox (badness 5802) in paragraph at lines 531--531
 []|\T1/cmr/m/n/10.95 nazwa, kategoria,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 500--500
+Underfull \hbox (badness 10000) in paragraph at lines 531--531
 []|\T1/cmr/m/n/10.95 utworzenie/aktualizacja
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 500--500
+Underfull \hbox (badness 10000) in paragraph at lines 531--531
 \T1/cmr/m/n/10.95 nazwy jako klucza
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 500--500
+Underfull \hbox (badness 10000) in paragraph at lines 531--531
 []|\T1/cmr/m/n/10.95 wygenerowanie atrybutów
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 500--500
+Underfull \hbox (badness 10000) in paragraph at lines 531--531
 \T1/cmr/m/n/10.95 kalendarzowych oraz flag
  []
 
 
-Overfull \hbox (7.89232pt too wide) in paragraph at lines 500--500
+Overfull \hbox (7.89232pt too wide) in paragraph at lines 531--531
 []|\T1/cmtt/m/n/10.95 FactPowerPlantOutput| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 500--500
+Underfull \hbox (badness 10000) in paragraph at lines 531--531
 []|\T1/cmr/m/n/10.95 agregacja produkcji po
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 500--500
+Underfull \hbox (badness 10000) in paragraph at lines 531--531
 \T1/cmr/m/n/10.95 forecast, load
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 500--500
+Underfull \hbox (badness 10000) in paragraph at lines 531--531
 []|\T1/cmr/m/n/10.95 agregacja do kwadransa;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 500--500
+Underfull \hbox (badness 10000) in paragraph at lines 531--531
 \T1/cmr/m/n/10.95 ±rednia dla cen i
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 500--500
+Underfull \hbox (badness 10000) in paragraph at lines 531--531
 \T1/cmr/m/n/10.95 zapotrzebowania, suma
  []
 
-[13] [14]
-Underfull \hbox (badness 2495) in paragraph at lines 546--547
+[15] [16]
+Underfull \hbox (badness 2495) in paragraph at lines 577--578
 []\T1/cmr/m/n/12 atrybuty elektrowni: nazwa, kategoria, województwo, wspóªrz¦dn
 e geograficzne,
  []
 
 
-Underfull \hbox (badness 3815) in paragraph at lines 552--553
+Underfull \hbox (badness 1117) in paragraph at lines 590--591
+\T1/cmtt/m/n/12 DimPowerPlant \T1/cmr/m/n/12 s¡ poª¡czone relacjami \T1/cmr/m/i
+t/12 jeden-do-wielu \T1/cmr/m/n/12 z tabelami faktów \T1/cmtt/m/n/12 FactWeathe
+r\T1/cmr/m/n/12 ,
+ []
+
+[17]
+Underfull \hbox (badness 4582) in paragraph at lines 603--604
+[]\T1/cmr/bx/n/12 Miary DAX\T1/cmr/m/n/12 : \T1/cmtt/m/n/12 Wspóªczynnik wykorz
+ystania \T1/cmr/m/n/12 = \T1/cmtt/m/n/12 Power\T1/cmr/m/n/12 /\T1/cmtt/m/n/12 i
+nstalled_power\T1/cmr/m/n/12 , \T1/cmtt/m/n/12 Bª¡d
+ []
+
+
+Underfull \hbox (badness 3815) in paragraph at lines 612--613
 \T1/cmr/m/n/12 Warstwa raportowa zostaªa zaimplementowana w pliku \T1/cmtt/m/n/
 12 business.pbix \T1/cmr/m/n/12 jako siedem
  []
 
-<img//pbi_1_przeglad.png, id=65, 1076.52188pt x 545.78906pt>
+<img//pbi_1_przeglad.png, id=74, 1076.52188pt x 545.78906pt>
 File: img//pbi_1_przeglad.png Graphic file (type png)
 <use img//pbi_1_przeglad.png>
-Package pdftex.def Info: img//pbi_1_przeglad.png  used on input line 564.
+Package pdftex.def Info: img//pbi_1_przeglad.png  used on input line 624.
 (pdftex.def)             Requested size: 483.69687pt x 245.22804pt.
-[15]
-<img//pbi_2_rynek.png, id=70, 1081.03876pt x 590.205pt>
+[18]
+<img//pbi_2_rynek.png, id=79, 1081.03876pt x 590.205pt>
 File: img//pbi_2_rynek.png Graphic file (type png)
 <use img//pbi_2_rynek.png>
-Package pdftex.def Info: img//pbi_2_rynek.png  used on input line 577.
+Package pdftex.def Info: img//pbi_2_rynek.png  used on input line 637.
 (pdftex.def)             Requested size: 483.69687pt x 264.07681pt.
- [16 <./img//pbi_1_przeglad.png>]
-<img//pbi_3_pogoda.png, id=75, 1075.01625pt x 606.01407pt>
+ [19 <./img//pbi_1_przeglad.png>]
+<img//pbi_3_pogoda.png, id=85, 1075.01625pt x 606.01407pt>
 File: img//pbi_3_pogoda.png Graphic file (type png)
 <use img//pbi_3_pogoda.png>
-Package pdftex.def Info: img//pbi_3_pogoda.png  used on input line 589.
+Package pdftex.def Info: img//pbi_3_pogoda.png  used on input line 649.
 (pdftex.def)             Requested size: 483.69687pt x 272.66682pt.
- [17 <./img//pbi_2_rynek.png>]
-<img//pbi_4_ceny.png, id=80, 1080.28593pt x 606.01407pt>
+ [20 <./img//pbi_2_rynek.png>]
+<img//pbi_4_ceny.png, id=90, 1080.28593pt x 606.01407pt>
 File: img//pbi_4_ceny.png Graphic file (type png)
 <use img//pbi_4_ceny.png>
-Package pdftex.def Info: img//pbi_4_ceny.png  used on input line 603.
+Package pdftex.def Info: img//pbi_4_ceny.png  used on input line 663.
 (pdftex.def)             Requested size: 483.69687pt x 271.33525pt.
- [18 <./img//pbi_3_pogoda.png>]
-Underfull \hbox (badness 1997) in paragraph at lines 610--611
+ [21 <./img//pbi_3_pogoda.png>]
+Underfull \hbox (badness 1997) in paragraph at lines 670--671
 []\T1/cmr/m/it/12 Wspóªczynnik wykorzystania w czasie \T1/cmr/m/n/12 - wykres k
 olumnowy miary \T1/cmtt/m/n/12 Wspóªczynnik
  []
 
 
-Underfull \hbox (badness 3039) in paragraph at lines 611--612
+Underfull \hbox (badness 3039) in paragraph at lines 671--672
 []\T1/cmr/m/it/12 ‘rednia prawdziwego obci¡»enia [MW] wg Dzie« tygodnia \T1/cmr
 /m/n/12 - wykres kolumnowy
  []
 
-<img//pbi_5_wzorce.png, id=85, 1053.9375pt x 607.51968pt>
+<img//pbi_5_wzorce.png, id=95, 1053.9375pt x 607.51968pt>
 File: img//pbi_5_wzorce.png Graphic file (type png)
 <use img//pbi_5_wzorce.png>
-Package pdftex.def Info: img//pbi_5_wzorce.png  used on input line 615.
+Package pdftex.def Info: img//pbi_5_wzorce.png  used on input line 675.
 (pdftex.def)             Requested size: 483.69687pt x 278.82281pt.
-[19 <./img//pbi_4_ceny.png>]
-<img//pbi_6_geografia.png, id=91, 1042.64531pt x 606.76688pt>
+[22 <./img//pbi_4_ceny.png>]
+<img//pbi_6_geografia.png, id=100, 1042.64531pt x 606.76688pt>
 File: img//pbi_6_geografia.png Graphic file (type png)
 <use img//pbi_6_geografia.png>
-Package pdftex.def Info: img//pbi_6_geografia.png  used on input line 629.
+Package pdftex.def Info: img//pbi_6_geografia.png  used on input line 689.
 (pdftex.def)             Requested size: 483.69687pt x 281.48633pt.
- [20 <./img//pbi_5_wzorce.png>]
-<img//pbi_7_pogoda.png, id=96, 1065.22969pt x 595.47469pt>
+ [23 <./img//pbi_5_wzorce.png>]
+<img//pbi_7_pogoda.png, id=105, 1065.22969pt x 595.47469pt>
 File: img//pbi_7_pogoda.png Graphic file (type png)
 <use img//pbi_7_pogoda.png>
-Package pdftex.def Info: img//pbi_7_pogoda.png  used on input line 643.
+Package pdftex.def Info: img//pbi_7_pogoda.png  used on input line 703.
 (pdftex.def)             Requested size: 483.69687pt x 270.38715pt.
 
-Underfull \hbox (badness 1303) in paragraph at lines 640--645
+Underfull \hbox (badness 1303) in paragraph at lines 700--705
 \T1/cmr/m/n/12 jest autorska miara DAX \T1/cmtt/m/n/12 ‘rednia moc wg pogody\T1
 /cmr/m/n/12 , która za pomoc¡ funkcji \T1/cmtt/m/n/12 TREATAS
  []
 
-[21 <./img//pbi_6_geografia.png>]
-Underfull \hbox (badness 3375) in paragraph at lines 659--660
+[24 <./img//pbi_6_geografia.png>]
+Underfull \hbox (badness 3375) in paragraph at lines 719--720
 \T1/cmr/m/n/12 Kontrola jako±ci i kompletno±ci ªadowa« realizowana jest w warst
 wie SQL (tabela
  []
 
-[22 <./img//pbi_7_pogoda.png>]
-Underfull \hbox (badness 2073) in paragraph at lines 665--666
+
+Underfull \hbox (badness 1248) in paragraph at lines 721--721
+[]\T1/cmr/bx/n/17.28 Podsumowanie i ocena rozwi¡zania z perspektywy
+ []
+
+[25 <./img//pbi_7_pogoda.png>]
+Underfull \hbox (badness 1194) in paragraph at lines 734--735
+\T1/cmr/m/n/12 ogranicza pracochªonno±¢ i ryzyko bª¦du przy r¦cznym pozyskiwani
+u danych, a tak»e
+ []
+
+
+Underfull \hbox (badness 1466) in paragraph at lines 756--756
+[]|\T1/cmr/m/n/10.95 Warstwa pozyskiwania i przetwarzania danych: skrypty ekstr
+akcji i
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 756--756
+[]|\T1/cmr/m/n/10.95 Warstwa raportowa i jako±¢ danych: model biznesowy oraz
+ []
+
+
+Underfull \hbox (badness 6348) in paragraph at lines 756--756
+\T1/cmr/m/n/10.95 miary DAX w Power BI, siedem stron raportu i wizualizacje,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 756--756
+\T1/cmr/m/n/10.95 hierarchie i interaktywno±¢, framework kontroli jako±ci danyc
+h
+ []
+
+[26]
+Underfull \hbox (badness 2073) in paragraph at lines 766--767
 []\T1/cmr/bx/n/12 Skrypt modelu hurtowni\T1/cmr/m/n/12 : \T1/cmtt/m/n/12 sql_he
 lp/00_Create_PowerDWH_empty.sql \T1/cmr/m/n/12 - baza,
  []
 
 
-Underfull \hbox (badness 3623) in paragraph at lines 665--666
+Underfull \hbox (badness 3623) in paragraph at lines 766--767
 \T1/cmr/m/n/12 schematy \T1/cmtt/m/n/12 etl\T1/cmr/m/n/12 /\T1/cmtt/m/n/12 stg\
 T1/cmr/m/n/12 , tabele wymiarów, faktów i staging, klucze obce, indeksy
  []
 
 
-Underfull \hbox (badness 5637) in paragraph at lines 665--666
+Underfull \hbox (badness 5637) in paragraph at lines 766--767
 \T1/cmr/m/n/12 oraz procedura \T1/cmtt/m/n/12 etl.usp_Load_DimPowerPlant \T1/cm
 r/m/n/12 (jej aktualna wersja równie» w
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 666--667
+Underfull \hbox (badness 10000) in paragraph at lines 767--768
 []\T1/cmr/bx/n/12 Skrypty kontroli jako±ci i audytu\T1/cmr/m/n/12 : \T1/cmtt/m/
 n/12 sql_help/DataQuality_checks.sql\T1/cmr/m/n/12 ,
  []
 
 
-Underfull \hbox (badness 7397) in paragraph at lines 670--671
+Underfull \hbox (badness 7397) in paragraph at lines 771--772
 []\T1/cmr/bx/n/12 Pakiety SSIS\T1/cmr/m/n/12 : \T1/cmtt/m/n/12 Master.dtsx\T1/c
 mr/m/n/12 , \T1/cmtt/m/n/12 Load_DimTime.dtsx\T1/cmr/m/n/12 , \T1/cmtt/m/n/12 L
 oad_DimPowerPlant.dtsx\T1/cmr/m/n/12 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 670--671
+Underfull \hbox (badness 10000) in paragraph at lines 771--772
 \T1/cmtt/m/n/12 Load_FactPolandEnergy.dtsx\T1/cmr/m/n/12 , \T1/cmtt/m/n/12 Load
 _FactPowerPlantOutput.dtsx\T1/cmr/m/n/12 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 671--672
+Underfull \hbox (badness 10000) in paragraph at lines 772--773
 []\T1/cmr/bx/n/12 Dane referencyjne\T1/cmr/m/n/12 : \T1/cmtt/m/n/12 powerplant_
 meta.csv\T1/cmr/m/n/12 , \T1/cmtt/m/n/12 DimTime.csv\T1/cmr/m/n/12 , pliki GeoJ
 SON
  []
 
-[23] (./KM3_Dubois_Gajda_Sprawozdanie.aux) ) 
+[27] (./KM3_Dubois_Gajda_Sprawozdanie.aux) ) 
 Here is how much of TeX's memory you used:
- 3415 strings out of 480247
- 55544 string characters out of 5896151
- 374929 words of memory out of 5000000
- 21328 multiletter control sequences out of 15000+600000
+ 3418 strings out of 480247
+ 55591 string characters out of 5896151
+ 378958 words of memory out of 5000000
+ 21331 multiletter control sequences out of 15000+600000
  483813 words of font info for 59 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  55i,11n,62p,1364b,313s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -833,10 +1041,10 @@ oziop/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on KM3_Dubois_Gajda_Sprawozdanie.pdf (23 pages, 1450362 bytes).
+Output written on KM3_Dubois_Gajda_Sprawozdanie.pdf (27 pages, 1473047 bytes).
 PDF statistics:
- 849 PDF objects out of 1000 (max. 8388607)
- 128 compressed objects within 2 object streams
+ 889 PDF objects out of 1000 (max. 8388607)
+ 137 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
