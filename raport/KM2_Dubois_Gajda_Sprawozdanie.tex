@@ -52,7 +52,7 @@
 
 	\section{Źródła danych}
 
-	W rozwiązaniu wykorzystywane są dwa źródła pobierane cyklicznie przez API (PSE oraz Meteostat) oraz jedno źródło referencyjne w postaci kuratorowanego pliku CSV z metadanymi elektrowni. Lista jednostek wytwórczych pochodzi z PSE, ich atrybuty opisowe (kategoria, moc, lokalizacja, województwo) są utrzymywane w pliku \texttt{powerplant\_meta.csv}, a same atrybuty pochodzą z bazy elektrowni serwisu Instrat.
+	W rozwiązaniu wykorzystywane są dwa źródła pobierane cyklicznie przez API (PSE oraz Meteostat) oraz jedno źródło referencyjne w postaci kuratorowanego pliku CSV z metadanymi elektrowni. Lista jednostek wytwórczych pochodzi z PSE; ich atrybuty opisowe (kategoria, moc, lokalizacja, województwo) są utrzymywane w pliku \texttt{powerplant\_meta.csv}.
 
 	\subsection{Dane energetyczne - PSE API}
 	\begin{itemize}
@@ -73,7 +73,7 @@
 	\begin{itemize}
 		\item Źródło: kuratorowany plik CSV utrzymywany w repozytorium projektu.
 		\item Zakres danych: nazwa elektrowni (klucz biznesowy), kategoria/rodzaj paliwa, moc zainstalowana w MW, współrzędne geograficzne, województwo.
-		\item Pochodzenie: dla elektrowni występujących w odpowiedziach PSE (endpoint \texttt{gen-jw}) atrybuty opisowe - kategorię/rodzaj paliwa, moc zainstalowaną, współrzędne i województwo - przepisano z bazy elektrowni serwisu Instrat (\texttt{https://energy.instrat.pl/system-elektroenergetyczny/baza-elektrowni/}), uzupełniając w razie potrzeby geokodowanie nazw (usługa Nominatim, wynik zapisany w \texttt{geo\_cache.json}). W bieżącym, cyklicznym procesie ETL nie są wykonywane zapytania do Instrat ani Nominatim - dane czerpane są z pliku CSV.
+		\item Pochodzenie: plik został zbudowany jednorazowo na podstawie publicznych rejestrów jednostek wytwórczych oraz geokodowania nazw (m.in. usługa Nominatim; wynik zapisany w \texttt{geo\_cache.json}). W bieżącym, cyklicznym procesie ETL nie są wykonywane zapytania do GPI/TGE ani Nominatim - dane czerpane są z pliku CSV.
 		\item Częstotliwość aktualizacji: rzadko, ręcznie - po pojawieniu się nowej jednostki w danych PSE lub po zmianie atrybutów elektrowni.
 		\item Docelowa tabela: \texttt{DimPowerPlant} (obsługa historii zmian mechanizmem SCD typu 2).
 	\end{itemize}
@@ -83,7 +83,7 @@
 		\item Źródło: \texttt{meteostat.p.rapidapi.com/point/hourly} (dostęp przez RapidAPI, klucz w zmiennej środowiskowej \texttt{RAPIDAPI\_KEY}).
 		\item Zakres danych (realnie ładowany): temperatura, punkt rosy, wilgotność względna, opady, kierunek i prędkość wiatru, ciśnienie, kod zjawiska pogodowego.
 		\item Format danych: odpowiedź REST w formacie JSON.
-		\item Granularność: dane godzinowe dla punktu określonego współrzędnymi elektrowni  pobierane w oknach do 30 dni.
+		\item Granularność: dane godzinowe dla punktu określonego współrzędnymi elektrowni; pobierane w oknach do 30 dni.
 		\item Częstotliwość odświeżania: dziennie. Uwaga: dostawca publikuje dane stacji z kilkudniowym opóźnieniem, co jest uwzględnione w kontroli jakości.
 		\item Docelowa tabela: \texttt{FactWeather}.
 	\end{itemize}
@@ -111,7 +111,7 @@
 
 	\subsection{Harmonogram odświeżania}
 	\begin{itemize}
-		\item Jednorazowe pobranie danych historycznych z PSE oraz danych pogodowych dla wybranego zakresu czasu, jednorazowe wygenerowanie wymiaru czasu.
+		\item Jednorazowe pobranie danych historycznych z PSE oraz danych pogodowych dla wybranego zakresu czasu; jednorazowe wygenerowanie wymiaru czasu.
 		\item Cykliczne (dzienne) przeładowanie zamkniętego okna dat - domyślnie od dwóch miesięcy wstecz do dnia poprzedniego, bez dnia bieżącego.
 		\item Dane pogodowe z Meteostat są pobierane dla współrzędnych aktywnych elektrowni odczytanych z \texttt{DimPowerPlant}.
 	\end{itemize}
@@ -141,7 +141,7 @@
 
 	\section{Architektura rozwiązania}
 
-	System zaprojektowano w architekturze warstwowej. Trzon stanowi hurtownia danych w Microsoft SQL Server. Ekstrakcja i transformacja danych ze źródeł realizowana jest skryptami w języku Python, które zapisują dane do warstwy staging, ładowanie z warstwy staging do modelu wymiarowego (z obsługą SCD2 i lookupów kluczy) wykonują pakiety SSIS. Po przetworzeniu dane są wykorzystywane w raportach Power BI.
+	System zaprojektowano w architekturze warstwowej. Trzon stanowi hurtownia danych w Microsoft SQL Server. Ekstrakcja i transformacja danych ze źródeł realizowana jest skryptami w języku Python, które zapisują dane do warstwy staging; ładowanie z warstwy staging do modelu wymiarowego (z obsługą SCD2 i lookupów kluczy) wykonują pakiety SSIS. Po przetworzeniu dane są wykorzystywane w raportach Power BI.
 
 	\begin{figure}[h!]
 		\centering
@@ -179,7 +179,7 @@
 	\begin{itemize}
 		\item Technologia: SSIS oraz procedury/transformacje SQL w Microsoft SQL Server.
 		\item Funkcje: uruchomienie właściwego skryptu ekstrakcji (Execute Process Task), ładowanie wymiarów (w tym SCD2 elektrowni), lookup kluczy obcych \texttt{TimeId} i \texttt{PowerPlantId}, ładowanie tabel faktów oraz obsługa godziny zdublowanej przy zmianie czasu.
-		\item Tryby: ładowanie historyczne dla wybranego okna oraz cykliczne przeładowanie okna bieżącego, orkiestracja przez pakiet \texttt{Master.dtsx} lub orkiestrator Pythonowy \texttt{load\_range.py}.
+		\item Tryby: ładowanie historyczne dla wybranego okna oraz cykliczne przeładowanie okna bieżącego; orkiestracja przez pakiet \texttt{Master.dtsx} lub orkiestrator Pythonowy \texttt{load\_range.py}.
 	\end{itemize}
 
 	\subsection{Warstwa hurtowni danych}
@@ -195,7 +195,7 @@
 	\begin{itemize}
 		\item Technologia: Power BI (plik \texttt{business.pbix}).
 		\item Tryb wykorzystania danych: model analityczny zasilany z hurtowni SQL Server (import), z relacjami między wymiarami a tabelami faktów odwzorowującymi konstelację faktów.
-		\item Zaimplementowane funkcje: siedem stron raportu (Przegląd, Rynek i bilansowanie, Pogoda a produkcja, Ceny i bilans, Wzorce czasowe, Geografia i moce, Pogoda a moc (kosze)) z analizą przekrojową według czasu, elektrowni, kategorii i województwa, wizualizacje trendów godzinowych, dziennych i sezonowych, mapy elektrowni i województw (warstwa GeoJSON), fragmentatory (slicery) po zakresie dat i kategorii elektrowni.
+		\item Zaimplementowane funkcje: siedem stron raportu (Przegląd, Rynek i bilansowanie, Pogoda a produkcja, Ceny i bilans, Wzorce czasowe, Geografia i moce, Pogoda a moc (kosze)) z analizą przekrojową według czasu, elektrowni, kategorii i województwa; wizualizacje trendów godzinowych, dziennych i sezonowych; mapy elektrowni i województw (warstwa GeoJSON); fragmentatory (slicery) po zakresie dat i kategorii elektrowni.
 		\item Autorskie miary DAX, m.in. \texttt{Współczynnik wykorzystania} (Capacity Utilization), \texttt{Błąd prognozy (MW)} (Forecast Error), \texttt{Moc floty} oraz \texttt{Średnia moc} w przekroju kraju i województwa.
 	\end{itemize}
 
@@ -383,16 +383,16 @@
 	\newpage
 	\section{Proces ETL}
 
-	Proces ETL jest kluczowym elementem projektu - dane pochodzą z kilku źródeł o różnym formacie i granularności i muszą zostać sprowadzone do wspólnego ziarna czasowego. Został zrealizowany jako hybryda: \textbf{ekstrakcję i transformację} wykonują skrypty w języku Python (biblioteki \texttt{requests}, \texttt{pandas}, \texttt{pyodbc}), które zapisują wynik do warstwy staging, \textbf{ładowanie} z warstwy staging do modelu wymiarowego (SCD2, lookupy, obsługa zmiany czasu) wykonują pakiety SSIS.
+	Proces ETL jest kluczowym elementem projektu - dane pochodzą z kilku źródeł o różnym formacie i granularności i muszą zostać sprowadzone do wspólnego ziarna czasowego. Został zrealizowany jako hybryda: \textbf{ekstrakcję i transformację} wykonują skrypty w języku Python (biblioteki \texttt{requests}, \texttt{pandas}, \texttt{pyodbc}), które zapisują wynik do warstwy staging; \textbf{ładowanie} z warstwy staging do modelu wymiarowego (SCD2, lookupy, obsługa zmiany czasu) wykonują pakiety SSIS.
 
 	\subsection{Ekstrakcja i transformacja (Python)}
-	Każdy skrypt obsługuje paginację PSE oraz parametryzowany zakres dat (\texttt{DATE\_FROM}, \texttt{DATE\_TO}, \texttt{LOOKBACK\_DAYS}), połączenie z bazą jest czytane ze zmiennych środowiskowych (\texttt{POWERDWH\_SERVER}, \texttt{POWERDWH\_DATABASE}) z domyślnymi wartościami \texttt{localhost}/\texttt{PowerDWH}.
+	Każdy skrypt obsługuje paginację PSE oraz parametryzowany zakres dat (\texttt{DATE\_FROM}, \texttt{DATE\_TO}, \texttt{LOOKBACK\_DAYS}); połączenie z bazą jest czytane ze zmiennych środowiskowych (\texttt{POWERDWH\_SERVER}, \texttt{POWERDWH\_DATABASE}) z domyślnymi wartościami \texttt{localhost}/\texttt{PowerDWH}.
 	\begin{itemize}
 		\item \texttt{extract\_powerplant.py} - pobiera listę elektrowni z endpointu \texttt{gen-jw}, łączy ją z metadanymi z \texttt{powerplant\_meta.csv} (kategoria, moc, współrzędne, województwo) i zapisuje do \texttt{stg.PowerPlant}.
 		\item \texttt{extract\_poland\_energy.py} - pobiera \texttt{energy-prices}, \texttt{rce-pln} i \texttt{kse-load}, wyznacza początek slotu (\texttt{dtime} pomniejszony o 15 minut), agreguje do kwadransa (średnia miar, suma dla \texttt{balance\_power}) i zapisuje do \texttt{stg.PolandEnergy}.
 		\item \texttt{extract\_power\_output.py} - pobiera generację jednostek z \texttt{gen-jw} i zapisuje do \texttt{stg.PowerPlantOutput}.
 		\item \texttt{extract\_weather.py} - odczytuje współrzędne aktywnych elektrowni z \texttt{DimPowerPlant}, pobiera dane godzinowe z Meteostat w oknach do 30 dni i zapisuje do \texttt{stg.Weather} (wymaga \texttt{RAPIDAPI\_KEY}).
-		\item \texttt{DimTimeloader.py} - generuje plik \texttt{DimTime.csv} (kalendarz kwadransowy 2024-2027 z flagami zmiany czasu), uruchamiany jednorazowo.
+		\item \texttt{DimTimeloader.py} - generuje plik \texttt{DimTime.csv} (kalendarz kwadransowy 2024-2027 z flagami zmiany czasu); uruchamiany jednorazowo.
 	\end{itemize}
 
 	\subsection{Warstwa staging}
@@ -408,7 +408,7 @@
 	Każdy pakiet faktów najpierw uruchamia odpowiedni skrypt ekstrakcji (Execute Process Task), a następnie w Data Flow wykonuje lookup kluczy i ładuje tabelę:
 	\begin{itemize}
 		\item \textbf{\texttt{Load\_FactPolandEnergy}}: lookup \texttt{TimeId}, ładowanie miar krajowych.
-		\item \textbf{\texttt{Load\_FactPowerPlantOutput}}: lookup \texttt{TimeId} oraz \texttt{PowerPlantId}, elektrownie bez dopasowania w wymiarze są pomijane (kontrolowane w QA).
+		\item \textbf{\texttt{Load\_FactPowerPlantOutput}}: lookup \texttt{TimeId} oraz \texttt{PowerPlantId}; elektrownie bez dopasowania w wymiarze są pomijane (kontrolowane w QA).
 		\item \textbf{\texttt{Load\_FactWeather}}: lookup \texttt{TimeId} oraz \texttt{PowerPlantId}, ładowanie miar pogodowych.
 	\end{itemize}
 
@@ -432,6 +432,50 @@
 	\end{itemize}
 	Kontrola jakości jest uzupełniona o audyt techniczny procesu ETL (schemat \texttt{audit}, sekcja \ref{sec:dq} wyżej w opisie orkiestracji), który rejestruje przebieg każdego biegu i pozwala powiązać wyniki reguł jakości z konkretnym uruchomieniem ładowania.
 
+	\subsection{Test poprawności działania na danych syntetycznych}
+	\label{sec:synttest}
+
+	Aby udowodnić poprawne działanie hurtowni \emph{niezależnie} od dostępności źródeł zewnętrznych (PSE, Meteostat), Pythona i SSIS, przygotowano samodzielny skrypt testowy \texttt{sql\_help/SyntheticData\_test.sql}. Skrypt wstrzykuje deterministyczne dane syntetyczne, sprawdza wynik kluczowych mechanizmów ETL i na końcu wszystko wycofuje (\texttt{ROLLBACK}), nie pozostawiając śladu w bazie. Wyniki gromadzone są w zmiennej tabelarycznej, która celowo nie podlega wycofaniu, dzięki czemu raport przeżywa cofnięcie danych. Każda asercja kończy się statusem PASS lub FAIL. Test obejmuje sześć obszarów:
+
+	\begin{itemize}
+		\item \textbf{SCD typu 2} - dla istniejącej, aktywnej wersji elektrowni zmiana kategorii i mocy w staging powoduje zamknięcie starej wersji (\texttt{isValid=0}, ustawione \texttt{validTo}) i otwarcie nowej; weryfikowana jest dokładnie jedna aktywna wersja oraz brak nakładających się okresów. Test wywołuje \emph{rzeczywistą} procedurę \texttt{etl.usp\_Load\_DimPowerPlant};
+		\item \textbf{Zmiana czasu (DST)} - dwa pomiary dla tej samej ściany zegara w dniu jesiennej zmiany czasu (godzina zwykła i powtórzona) trafiają na dwa odrębne \texttt{TimeId} (różniące się bitem \texttt{isExtraHour}) i pozostają osobnymi wierszami faktu - dowód, że model nie skleja powtórzonej godziny;
+		\item \textbf{Idempotencja} - dwukrotne załadowanie tego samego okna metodą \texttt{DELETE}-okno + \texttt{INSERT} nie tworzy duplikatów (liczba wierszy pozostaje stała);
+		\item \textbf{Integralność referencyjna} - próba wstawienia faktu z nieistniejącym \texttt{TimeId} jest odrzucana przez klucz obcy na poziomie bazy;
+		\item \textbf{Kontrola jakości - test pozytywny} - na czystych danych syntetycznych reguły jakości nie zgłaszają żadnych naruszeń;
+		\item \textbf{Kontrola jakości - test negatywny} - celowo wstrzyknięte błędy (temperatura poza zakresem fizycznym, ujemne zapotrzebowanie, duplikat klucza faktu, produkcja przekraczająca moc zainstalowaną, nakładające się wersje SCD) są przez reguły wykrywane. To dowodzi, że kontrole nie są ,,puste'' - faktycznie reagują na złe dane.
+	\end{itemize}
+
+	\noindent Uruchomienie testu na wczytanej bazie zakończyło się wynikiem \textbf{16/16 PASS}. Pełny wynik przedstawia tabela~\ref{tab:synttest}.
+
+	\begin{table}[H]
+		\centering
+		\small
+		\begin{tabularx}{\textwidth}{|c|p{2.0cm}|X|c|}
+			\hline
+			\textbf{Lp} & \textbf{Obszar} & \textbf{Weryfikowana właściwość} & \textbf{Wynik} \\
+			\hline
+			1  & SCD2   & po zmianie istnieje dokładnie jedna aktywna wersja & PASS \\ \hline
+			2  & SCD2   & aktywna wersja ma nowe atrybuty i \texttt{validTo} = NULL & PASS \\ \hline
+			3  & SCD2   & stara wersja zamknięta (\texttt{isValid=0}, \texttt{validTo>validFrom}) & PASS \\ \hline
+			4  & SCD2   & brak nakładających się okresów wersji & PASS \\ \hline
+			5  & DST    & powtórzona godzina = dwa odrębne wiersze faktu & PASS \\ \hline
+			6  & DST    & dwa różne \texttt{TimeId} dla tej samej ściany zegara & PASS \\ \hline
+			7  & DST    & \texttt{DimTime}: znacznik \texttt{isExtraHour} zgodny z bitem \texttt{TimeId} & PASS \\ \hline
+			8  & Idempot. & ponowny bieg nie tworzy duplikatów (liczba stała) & PASS \\ \hline
+			9  & Ref. int. & FK odrzuca fakt z nieistniejącym \texttt{TimeId} & PASS \\ \hline
+			10 & DQ (+) & czyste dane: brak duplikatów produkcji & PASS \\ \hline
+			11 & DQ (+) & czyste dane: brak wielu aktywnych wersji elektrowni & PASS \\ \hline
+			12 & DQ (--) & wykryto temperaturę poza zakresem fizycznym ($>$45\,$^\circ$C) & PASS \\ \hline
+			13 & DQ (--) & wykryto ujemne zapotrzebowanie (\texttt{load\_actual}$<$0) & PASS \\ \hline
+			14 & DQ (--) & wykryto duplikat klucza (\texttt{PowerPlantId},\texttt{TimeId}) & PASS \\ \hline
+			15 & DQ (--) & wykryto produkcję przekraczającą moc zainstalowaną & PASS \\ \hline
+			16 & DQ (--) & wykryto nakładające się wersje SCD & PASS \\ \hline
+		\end{tabularx}
+		\caption{Wynik testu poprawności działania na danych syntetycznych (\texttt{SyntheticData\_test.sql})}
+		\label{tab:synttest}
+	\end{table}
+
 	\subsection{Podsumowanie mapowań STTM}
 
 	Logika mapowania pól źródłowych na docelowe jest zaimplementowana w skryptach ekstrakcji oraz w procedurach/transformacjach ładowania. Poniższa tabela podsumowuje najważniejsze reguły.
@@ -439,7 +483,7 @@
 	\begin{table}[h!]
 		\centering
 		\small
-		\begin{tabularx}{\textwidth}{|p{3.4cm}|p{3.0cm}|p{3.2cm}|X|}
+		\begin{tabularx}{\textwidth}{|p{3.7cm}|p{3.6cm}|p{3.2cm}|X|}
 			\hline
 			\textbf{Tabela docelowa} & \textbf{Źródło} & \textbf{Pole źródłowe} & \textbf{Reguła ETL} \\
 			\hline
@@ -451,7 +495,7 @@
 			\hline
 			\texttt{FactPowerPlantOutput} & PSE \texttt{gen-jw} & \texttt{value} & agregacja produkcji po elektrowni i kwadransie \\
 			\hline
-			\texttt{FactPolandEnergy} & PSE \texttt{energy-prices}, \texttt{rce-pln}, \texttt{kse-load} & ceny, bilans, load forecast, load actual & agregacja do kwadransa, średnia dla cen i zapotrzebowania, suma dla bilansu \\
+			\texttt{FactPolandEnergy} & PSE \texttt{energy-prices}, \texttt{rce-pln}, \texttt{kse-load} & ceny, bilans, load forecast, load actual & agregacja do kwadransa; średnia dla cen i zapotrzebowania, suma dla bilansu \\
 			\hline
 		\end{tabularx}
 		\caption{Skrócone mapowanie STTM}
@@ -510,9 +554,9 @@
 	\subsection{Strona 1: Przegląd}
 	Pulpit wprowadzający z czterema wizualizacjami i fragmentatorem zakresu dat (\textit{Okres}):
 	\begin{itemize}
-		\item \textit{Produkcja wg Źródła: kraj vs wybrane województwo (mapa + okres)} - wykres kolumnowy łącznej produkcji według rodzaju paliwa (Węgiel kamienny, Węgiel brunatny, Gaz ziemny, Biomasa, Fotowoltaika, Woda) w zestawieniu Polska vs wybrane województwo,
-		\item \textit{Zapotrzebowanie KSE: prognoza vs rzeczywiste} - wykres liniowy \texttt{load\_actual} i \texttt{load\_fcst} w czasie,
-		\item \textit{Moc zainstalowana wg województwa i Źródła} - skumulowany wykres słupkowy mocy w podziale na województwo i rodzaj elektrowni,
+		\item \textit{Produkcja wg Źródła: kraj vs wybrane województwo (mapa + okres)} - wykres kolumnowy łącznej produkcji według rodzaju paliwa (Węgiel kamienny, Węgiel brunatny, Gaz ziemny, Biomasa, Fotowoltaika, Woda) w zestawieniu Polska vs wybrane województwo;
+		\item \textit{Zapotrzebowanie KSE: prognoza vs rzeczywiste} - wykres liniowy \texttt{load\_actual} i \texttt{load\_fcst} w czasie;
+		\item \textit{Moc zainstalowana wg województwa i Źródła} - skumulowany wykres słupkowy mocy w podziale na województwo i rodzaj elektrowni;
 		\item \textit{Mapa: Średnia moc wg lokalizacji} - kartogram województw Polski (warstwa GeoJSON).
 	\end{itemize}
 	\begin{figure}[H]
@@ -524,8 +568,8 @@
 	\subsection{Strona 2: Rynek i bilansowanie}
 	Analiza rynkowa w trzech wykresach liniowych:
 	\begin{itemize}
-		\item \textit{Ceny i koszty bilansujące w czasie} - składowe cenowe CDSAC, CEB śr., CEN, COR i SK (w PLN),
-		\item \textit{Zapotrzebowanie KSE vs produkcja największych elektrowni} - zapotrzebowanie rzeczywiste zestawione z miarą \texttt{Moc floty} (w MW),
+		\item \textit{Ceny i koszty bilansujące w czasie} - składowe cenowe CDSAC, CEB śr., CEN, COR i SK (w PLN);
+		\item \textit{Zapotrzebowanie KSE vs produkcja największych elektrowni} - zapotrzebowanie rzeczywiste zestawione z miarą \texttt{Moc floty} (w MW);
 		\item \textit{Rynkowa cena energii (RCE)} - przebieg średniej \texttt{rce\_cost} w PLN.
 	\end{itemize}
 	\begin{figure}[H]
@@ -537,7 +581,7 @@
 	\subsection{Strona 3: Pogoda a produkcja}
 	Sedno celu biznesowego - dwa wykresy punktowe wiążące produkcję z pogodą:
 	\begin{itemize}
-		\item \textit{Produkcja a temperatura (rozmiar = moc zainst., kolor = paliwo)} - średnia moc względem średniej temperatury, kolor wg kategorii paliwa, rozmiar punktu wg mocy zainstalowanej,
+		\item \textit{Produkcja a temperatura (rozmiar = moc zainst., kolor = paliwo)} - średnia moc względem średniej temperatury, kolor wg kategorii paliwa, rozmiar punktu wg mocy zainstalowanej;
 		\item \textit{Produkcja a ciśnienie (kolor = kod pogody)} - średnia moc względem średniego ciśnienia, kolor wg kodu zjawiska pogodowego.
 	\end{itemize}
 	\begin{figure}[H]
@@ -549,9 +593,9 @@
 	\subsection{Strona 4: Ceny i bilans}
 	Powiązania cen z popytem i bilansem (podział \textit{Czy weekend}):
 	\begin{itemize}
-		\item \textit{Błąd prognozy (MW) wg Godzina} - wykres kolumnowy miary \texttt{Błąd prognozy (MW)} w przekroju godzin doby (największe odchylenia w godzinach okołopołudniowych),
-		\item tabela przestawna średniej RCE w układzie godzina $\times$ dzień tygodnia (z sumami),
-		\item \textit{Średni bilans mocy i średnie rce wg godziny} - wykres punktowy RCE względem bilansu mocy,
+		\item \textit{Błąd prognozy (MW) wg Godzina} - wykres kolumnowy miary \texttt{Błąd prognozy (MW)} w przekroju godzin doby (największe odchylenia w godzinach okołopołudniowych);
+		\item tabela przestawna średniej RCE w układzie godzina $\times$ dzień tygodnia (z sumami);
+		\item \textit{Średni bilans mocy i średnie rce wg godziny} - wykres punktowy RCE względem bilansu mocy;
 		\item \textit{Zależność średniej prawdziwego obciążenia (MW) i RCE (PLN) wg godziny} - wykres punktowy RCE względem rzeczywistego obciążenia.
 	\end{itemize}
 	\begin{figure}[H]
@@ -563,7 +607,7 @@
 	\subsection{Strona 5: Wzorce czasowe}
 	Analiza sezonowości i profili dobowych:
 	\begin{itemize}
-		\item \textit{Współczynnik wykorzystania w czasie} - wykres kolumnowy miary \texttt{Współczynnik wykorzystania} z hierarchią drążenia miesiąc $\rightarrow$ tydzień $\rightarrow$ dzień tygodnia $\rightarrow$ godzina,
+		\item \textit{Współczynnik wykorzystania w czasie} - wykres kolumnowy miary \texttt{Współczynnik wykorzystania} z hierarchią drążenia miesiąc $\rightarrow$ tydzień $\rightarrow$ dzień tygodnia $\rightarrow$ godzina;
 		\item \textit{Średnia prawdziwego obciążenia [MW] wg Dzień tygodnia} - wykres kolumnowy ujawniający wyższe obciążenie w dni robocze niż w weekend.
 	\end{itemize}
 	\begin{figure}[H]
@@ -575,9 +619,9 @@
 	\subsection{Strona 6: Geografia i moce}
 	Ujęcie przestrzenne i porównanie jednostek (fragmentator \textit{Kategoria}):
 	\begin{itemize}
-		\item \textit{Moc zainstalowana elektrowni wg lokalizacji i paliwa [MW]} - mapa punktowa na podkładzie geograficznym, rozmiar wg mocy zainstalowanej, kolor wg kategorii,
-		\item \textit{Współczynnik wykorzystania wg paliwa} - wykres kolumnowy (najwyższy dla Biomasy, najniższy dla Wody),
-		\item \textit{Moc zainstalowana wg województw i paliwa [MW]} - skumulowany wykres kolumnowy,
+		\item \textit{Moc zainstalowana elektrowni wg lokalizacji i paliwa [MW]} - mapa punktowa na podkładzie geograficznym, rozmiar wg mocy zainstalowanej, kolor wg kategorii;
+		\item \textit{Współczynnik wykorzystania wg paliwa} - wykres kolumnowy (najwyższy dla Biomasy, najniższy dla Wody);
+		\item \textit{Moc zainstalowana wg województw i paliwa [MW]} - skumulowany wykres kolumnowy;
 		\item \textit{Średnia produkcja wg elektrowni [MW]} - wykres słupkowy rankingowy (m.in. Bełchatów, Opole, Kozienice 2, Turów, Kozienice 1, Jaworzno 2 JWCD, Gryfino, Połaniec).
 	\end{itemize}
 	\begin{figure}[H]
@@ -589,11 +633,11 @@
 	\subsection{Strona 7: Pogoda a moc (kosze)}
 	Strona analityczna poświęcona bezpośrednio zależności średniej produkcji elektrowni od warunków pogodowych. Zawiera trzy wykresy kolumnowe grupowane (świadomie zamiast wykresów punktowych), w których oś X stanowią przedziały (kosze) wartości pogodowej, legendę - kategoria paliwa, a wysokość słupka - średnią moc:
 	\begin{itemize}
-		\item \textit{Średnia moc wg temperatury (kosze 2 °C)} - przedziały temperatury co 2 °C,
-		\item \textit{Średnia moc wg punktu rosy (kosze 2 °C)} - przedziały punktu rosy co 2 °C,
+		\item \textit{Średnia moc wg temperatury (kosze 2 °C)} - przedziały temperatury co 2 °C;
+		\item \textit{Średnia moc wg punktu rosy (kosze 2 °C)} - przedziały punktu rosy co 2 °C;
 		\item \textit{Średnia moc wg prędkości wiatru (kosze 1 m/s)} - przedziały prędkości wiatru co 1 m/s (oś przycięta do 40 m/s).
 	\end{itemize}
-	Przedziały utworzono mechanizmem grupowania (binning) Power BI. Kluczowym elementem jest autorska miara DAX \texttt{Średnia moc wg pogody}, która za pomocą funkcji \texttt{TREATAS} przenosi kontekst pomiaru pogodowego (\texttt{TimeId} i \texttt{PowerPlantId} z \texttt{FactWeather}) na wymiary \texttt{DimTime} i \texttt{DimPowerPlant}. Dzięki temu średnia z \texttt{FactPowerPlantOutput[Power]} reaguje na kosz pogodowy mimo jednokierunkowych relacji między tabelami faktów (bez tego słupki byłyby płaskie - pokazywałyby średnią globalną). Przygotowano także miary odchylenia standardowego i jego granic (\texttt{Odch std moc pogoda}, \texttt{Moc górna/dolna pogoda}), Power BI nie udostępnia jednak słupków błędu dla wykresu kolumnowego z legendą, więc nie zostały one naniesione. Widoczny jest spadek średniej mocy przy wysokich temperaturach oraz ujemne wartości dla kategorii Woda (praca pompowa elektrowni szczytowo-pompowych). Kosze temperatury i punktu rosy ustawiono na 2 °C (zamiast pierwotnych 0,5 °C) dla lepszej czytelności, a oś prędkości wiatru przycięto do 40 m/s, pomijając wizualnie pojedyncze wartości odstające źródła. Osie opisano jednostkami: oś X - °C (temperatura, punkt rosy) lub m/s (prędkość wiatru), oś Y - MW (średnia moc).
+	Przedziały utworzono mechanizmem grupowania (binning) Power BI. Kluczowym elementem jest autorska miara DAX \texttt{Średnia moc wg pogody}, która za pomocą funkcji \texttt{TREATAS} przenosi kontekst pomiaru pogodowego (\texttt{TimeId} i \texttt{PowerPlantId} z \texttt{FactWeather}) na wymiary \texttt{DimTime} i \texttt{DimPowerPlant}. Dzięki temu średnia z \texttt{FactPowerPlantOutput[Power]} reaguje na kosz pogodowy mimo jednokierunkowych relacji między tabelami faktów (bez tego słupki byłyby płaskie - pokazywałyby średnią globalną). Przygotowano także miary odchylenia standardowego i jego granic (\texttt{Odch std moc pogoda}, \texttt{Moc górna/dolna pogoda}); Power BI nie udostępnia jednak słupków błędu dla wykresu kolumnowego z legendą, więc nie zostały one naniesione. Widoczny jest spadek średniej mocy przy wysokich temperaturach oraz ujemne wartości dla kategorii Woda (praca pompowa elektrowni szczytowo-pompowych). Kosze temperatury i punktu rosy ustawiono na 2 °C (zamiast pierwotnych 0,5 °C) dla lepszej czytelności, a oś prędkości wiatru przycięto do 40 m/s, pomijając wizualnie pojedyncze wartości odstające źródła. Osie opisano jednostkami: oś X - °C (temperatura, punkt rosy) lub m/s (prędkość wiatru), oś Y - MW (średnia moc).
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=\linewidth]{pbi_7_pogoda.png}
@@ -603,12 +647,12 @@
 	\subsection{Interaktywność: fragmentatory i drążenie (drill-down)}
 	Raport jest interaktywny - poniżej zestawiono dostępne opcje wyboru i drążenia oraz miejsca ich występowania:
 	\begin{itemize}
-		\item \textbf{Fragmentator \textit{Okres}} (zakres dat) - strona \textit{Przegląd}, prawy górny róg, ogranicza zakres czasowy wszystkich wizualizacji strony (domyślnie 10.04.2026-13.06.2026).
-		\item \textbf{Fragmentator \textit{Kategoria}} (rodzaj elektrowni, tryb \textit{Wiele zaznaczeń}) - strona \textit{Geografia i moce}, lewy dolny róg, pozwala zawęzić analizę do wybranych paliw.
+		\item \textbf{Fragmentator \textit{Okres}} (zakres dat) - strona \textit{Przegląd}, prawy górny róg; ogranicza zakres czasowy wszystkich wizualizacji strony (domyślnie 10.04.2026-13.06.2026).
+		\item \textbf{Fragmentator \textit{Kategoria}} (rodzaj elektrowni, tryb \textit{Wiele zaznaczeń}) - strona \textit{Geografia i moce}, lewy dolny róg; pozwala zawęzić analizę do wybranych paliw.
 		\item \textbf{Drążenie hierarchii czasu} (drill-down) - wykres \textit{Współczynnik wykorzystania w czasie} (strona \textit{Wzorce czasowe}) oraz wykresy liniowe na stronach \textit{Przegląd} i \textit{Rynek i bilansowanie}: hierarchia miesiąc $\rightarrow$ tydzień $\rightarrow$ dzień tygodnia $\rightarrow$ godzina. Drążenie uruchamia się przyciskami w prawym górnym rogu wizualizacji (strzałka w dół - tryb drążenia, podwójna strzałka - przejście na niższy poziom dla wszystkich kategorii).
-		\item \textbf{Podział wg legendy \textit{Czy weekend}} (Fałsz/Prawda) - wykresy punktowe na stronie \textit{Ceny i bilans}, rozróżnia dni robocze i weekend.
+		\item \textbf{Podział wg legendy \textit{Czy weekend}} (Fałsz/Prawda) - wykresy punktowe na stronie \textit{Ceny i bilans}; rozróżnia dni robocze i weekend.
 		\item \textbf{Interaktywne legendy} - kliknięcie pozycji legendy (kategoria paliwa, kod pogody) wyróżnia wybraną serię na stronach \textit{Przegląd}, \textit{Pogoda a produkcja} i \textit{Geografia i moce}.
-		\item \textbf{Filtrowanie krzyżowe (cross-filtering)} - kliknięcie elementu jednej wizualizacji (np. województwa, paliwa lub elektrowni) automatycznie filtruje pozostałe wizualizacje strony, na tej zasadzie działa zestawienie \textit{kraj vs wybrane województwo} na stronie \textit{Przegląd}.
+		\item \textbf{Filtrowanie krzyżowe (cross-filtering)} - kliknięcie elementu jednej wizualizacji (np. województwa, paliwa lub elektrowni) automatycznie filtruje pozostałe wizualizacje strony; na tej zasadzie działa zestawienie \textit{kraj vs wybrane województwo} na stronie \textit{Przegląd}.
 	\end{itemize}
 
 	\medskip
@@ -620,6 +664,7 @@
 	\begin{itemize}
 		\item \textbf{Skrypt modelu hurtowni}: \texttt{sql\_help/00\_Create\_PowerDWH\_empty.sql} - baza, schematy \texttt{etl}/\texttt{stg}, tabele wymiarów, faktów i staging, klucze obce, indeksy oraz procedura \texttt{etl.usp\_Load\_DimPowerPlant} (jej aktualna wersja również w \texttt{SCD\_2\_DimPowerPlant.sql}).
 		\item \textbf{Skrypty kontroli jakości i audytu}: \texttt{sql\_help/DataQuality\_checks.sql}, \texttt{sql\_help/PostLoad\_checks.sql} oraz \texttt{sql\_help/Audit\_setup.sql} (schemat \texttt{audit}: \texttt{EtlRun}/\texttt{EtlStep}, widok \texttt{vLastRun}).
+		\item \textbf{Test poprawności na danych syntetycznych}: \texttt{sql\_help/SyntheticData\_test.sql} - samodzielny, odwracalny (\texttt{ROLLBACK}) test SCD2, obsługi zmiany czasu, idempotencji, integralności referencyjnej oraz wykrywalności reguł jakości (sekcja \ref{sec:synttest}).
 		\item \textbf{Raport Power BI}: \texttt{business.pbix} (siedem stron analitycznych) wraz z plikami granic województw \texttt{poland\_voivodeships\_pl.geojson}.
 		\item \textbf{Skrypty ETL (Python)}: \texttt{extract\_powerplant.py}, \texttt{extract\_poland\_energy.py}, \texttt{extract\_power\_output.py}, \texttt{extract\_weather.py}, \texttt{DimTimeloader.py}, \texttt{load\_range.py} (orkiestrator) oraz \texttt{requirements.txt}.
 		\item \textbf{Pakiety SSIS}: \texttt{Master.dtsx}, \texttt{Load\_DimTime.dtsx}, \texttt{Load\_DimPowerPlant.dtsx}, \texttt{Load\_FactPolandEnergy.dtsx}, \texttt{Load\_FactPowerPlantOutput.dtsx}, \texttt{Load\_FactWeather.dtsx}.

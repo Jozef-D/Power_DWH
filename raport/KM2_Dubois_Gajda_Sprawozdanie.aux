@@ -6,7 +6,7 @@
 \@writefile{toc}{\contentsline {section}{\numberline {2}Źródła danych}{2}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Dane energetyczne - PSE API}{2}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Metadane elektrowni - plik \texttt  {powerplant\_meta.csv}}{2}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Dane pogodowe - Meteostat API}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Dane pogodowe - Meteostat API}{2}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Zestawienie źródeł danych}{3}{}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Źródła danych wykorzystywane w projekcie}}{3}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}Analiza źródeł danych}{3}{}\protected@file@percent }
@@ -15,8 +15,8 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Niezbędne transformacje}{4}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}Architektura rozwiązania}{4}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Warstwa źródłowa}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Warstwa staging}{4}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Architektura zaimplementowanego rozwiązania}}{5}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Warstwa staging}{5}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Warstwa ładowania (SSIS)}{5}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Warstwa hurtowni danych}{5}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Warstwa raportowa}{6}{}\protected@file@percent }
@@ -43,28 +43,32 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.6}Orkiestracja i parametryzacja}{11}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.7}Kontrola jakości danych}{11}{}\protected@file@percent }
 \newlabel{sec:dq}{{6.7}{11}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.8}Podsumowanie mapowań STTM}{12}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Skrócone mapowanie STTM}}{12}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Kluczowe miary i atrybuty w modelu}{13}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Miary pogodowe}{13}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Miary produkcyjne}{13}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Miary krajowe i cenowe}{13}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Kluczowe atrybuty analityczne}{14}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8}Raporty dla użytkowników (Power BI)}{14}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Strona 1: Przegląd}{14}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Power BI - strona \textit  {Przegląd} (fragmentator zakresu dat \textit  {Okres} w prawym górnym rogu)}}{15}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Strona 2: Rynek i bilansowanie}{15}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Power BI - strona \textit  {Rynek i bilansowanie} (wykresy liniowe z hierarchią czasu umożliwiającą drążenie)}}{16}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Strona 3: Pogoda a produkcja}{16}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Power BI - strona \textit  {Pogoda a produkcja} (legendy kategorii paliwa i kodu pogody działają jako interaktywne filtry)}}{17}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}Strona 4: Ceny i bilans}{17}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Power BI - strona \textit  {Ceny i bilans} (podział serii wg legendy \textit  {Czy weekend}: Fałsz/Prawda)}}{18}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.5}Strona 5: Wzorce czasowe}{18}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Power BI - strona \textit  {Wzorce czasowe}. Wykres \textit  {Współczynnik wykorzystania w czasie} (u góry, wg miesiąca) ma hierarchię drążenia miesiąc $\rightarrow $ tydzień $\rightarrow $ dzień tygodnia $\rightarrow $ godzina}}{19}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.6}Strona 6: Geografia i moce}{19}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Power BI - strona \textit  {Geografia i moce} (fragmentator \textit  {Kategoria} z wielokrotnym wyborem w lewym dolnym rogu)}}{20}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.7}Strona 7: Pogoda a moc (kosze)}{20}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Power BI - strona \textit  {Pogoda a moc (kosze)}: średnia moc w przedziałach temperatury, punktu rosy i prędkości wiatru, w podziale na kategorię paliwa}}{21}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.8}Interaktywność: fragmentatory i drążenie (drill-down)}{21}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {9}Załączniki}{22}{}\protected@file@percent }
-\gdef \@abspage@last{22}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.8}Test poprawności działania na danych syntetycznych}{12}{}\protected@file@percent }
+\newlabel{sec:synttest}{{6.8}{12}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Wynik testu poprawności działania na danych syntetycznych (\texttt  {SyntheticData\_test.sql})}}{13}{}\protected@file@percent }
+\newlabel{tab:synttest}{{8}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.9}Podsumowanie mapowań STTM}{13}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Skrócone mapowanie STTM}}{13}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Kluczowe miary i atrybuty w modelu}{14}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Miary pogodowe}{14}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Miary produkcyjne}{14}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Miary krajowe i cenowe}{14}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Kluczowe atrybuty analityczne}{15}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Raporty dla użytkowników (Power BI)}{15}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Strona 1: Przegląd}{15}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Power BI - strona \textit  {Przegląd} (fragmentator zakresu dat \textit  {Okres} w prawym górnym rogu)}}{16}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Strona 2: Rynek i bilansowanie}{16}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Power BI - strona \textit  {Rynek i bilansowanie} (wykresy liniowe z hierarchią czasu umożliwiającą drążenie)}}{17}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Strona 3: Pogoda a produkcja}{17}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Power BI - strona \textit  {Pogoda a produkcja} (legendy kategorii paliwa i kodu pogody działają jako interaktywne filtry)}}{18}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}Strona 4: Ceny i bilans}{18}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Power BI - strona \textit  {Ceny i bilans} (podział serii wg legendy \textit  {Czy weekend}: Fałsz/Prawda)}}{19}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.5}Strona 5: Wzorce czasowe}{19}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Power BI - strona \textit  {Wzorce czasowe}. Wykres \textit  {Współczynnik wykorzystania w czasie} (u góry, wg miesiąca) ma hierarchię drążenia miesiąc $\rightarrow $ tydzień $\rightarrow $ dzień tygodnia $\rightarrow $ godzina}}{20}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.6}Strona 6: Geografia i moce}{20}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Power BI - strona \textit  {Geografia i moce} (fragmentator \textit  {Kategoria} z wielokrotnym wyborem w lewym dolnym rogu)}}{21}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.7}Strona 7: Pogoda a moc (kosze)}{21}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Power BI - strona \textit  {Pogoda a moc (kosze)}: średnia moc w przedziałach temperatury, punktu rosy i prędkości wiatru, w podziale na kategorię paliwa}}{22}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.8}Interaktywność: fragmentatory i drążenie (drill-down)}{22}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Załączniki}{23}{}\protected@file@percent }
+\gdef \@abspage@last{23}

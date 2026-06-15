@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.1.29)  15 JUN 2026 00:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.1.29)  15 JUN 2026 01:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -240,37 +240,7 @@ File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 72.
-
-Underfull \hbox (badness 5862) in paragraph at lines 76--77
-[]\T1/cmr/m/n/12 Pochodzenie: dla elektrowni wyst¦puj¡cych w odpowiedziach PSE 
-(endpoint
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 76--77
-\T1/cmtt/m/n/12 gen-jw\T1/cmr/m/n/12 ) atrybuty opisowe - kategori¦/rodzaj pali
-wa, moc zainstalowan¡,
- []
-
-
-Underfull \hbox (badness 6961) in paragraph at lines 76--77
-\T1/cmr/m/n/12 wspóªrz¦dne i województwo - przepisano z bazy elektrowni serwisu
- Instrat
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 76--77
-\T1/cmr/m/n/12 (\T1/cmtt/m/n/12 https://energy.instrat.pl/system-elektroenerget
-yczny/baza-elektrowni/\T1/cmr/m/n/12 ),
- []
-
-[2]
-Underfull \hbox (badness 1210) in paragraph at lines 86--87
-[]\T1/cmr/m/n/12 Granularno±¢: dane godzinowe dla punktu okre±lonego wspóªrz¦dn
-ymi elektrowni
- []
-
-
+ [2]
 Underfull \hbox (badness 1102) in paragraph at lines 87--88
 []\T1/cmr/m/n/12 Cz¦stotliwo±¢ od±wie»ania: dziennie. Uwaga: dostawca publikuje
  dane stacji z
@@ -383,8 +353,8 @@ Underfull \hbox (badness 1484) in paragraph at lines 182--183
  []
 
 [5]
-Underfull \hbox (badness 2970) in paragraph at lines 198--199
-\T1/cmr/m/n/12 wizualizacje trendów godzinowych, dziennych i sezonowych, mapy e
+Underfull \hbox (badness 2726) in paragraph at lines 198--199
+\T1/cmr/m/n/12 wizualizacje trendów godzinowych, dziennych i sezonowych; mapy e
 lektrowni i
  []
 
@@ -631,196 +601,214 @@ iarach: Kompletno±¢,
  []
 
 [11]
-Underfull \hbox (badness 6825) in paragraph at lines 456--456
+Underfull \hbox (badness 10000) in paragraph at lines 438--439
+\T1/cmr/m/n/12 Aby udowodni¢ poprawne dziaªanie hurtowni \T1/cmr/m/it/12 niezal
+e»nie \T1/cmr/m/n/12 od dost¦pno±ci ¹ródeª
+ []
+
+
+Underfull \hbox (badness 1400) in paragraph at lines 446--447
+\T1/cmr/m/n/12 przekraczaj¡ca moc zainstalowan¡, nakªadaj¡ce si¦ wersje SCD) s¡
+ przez reguªy
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 475--475
+[]\T1/cmr/m/n/12 Table 8: Wynik testu poprawno±ci dziaªania na danych syntetycz
+nych
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 500--500
 []|\T1/cmr/m/n/10.95 PSE \T1/cmtt/m/n/10.95 gen-jw \T1/cmr/m/n/10.95 +
  []
 
 
-Overfull \hbox (22.15079pt too wide) in paragraph at lines 456--456
+Overfull \hbox (5.07896pt too wide) in paragraph at lines 500--500
 \T1/cmtt/m/n/10.95 powerplant_meta.csv| 
  []
 
 
-Underfull \hbox (badness 5802) in paragraph at lines 456--456
+Underfull \hbox (badness 5802) in paragraph at lines 500--500
 []|\T1/cmr/m/n/10.95 nazwa, kategoria,
  []
 
 
-Underfull \hbox (badness 7081) in paragraph at lines 456--456
-[]|\T1/cmr/m/n/10.95 utworzenie/aktualizacja rekordu
+Underfull \hbox (badness 10000) in paragraph at lines 500--500
+[]|\T1/cmr/m/n/10.95 utworzenie/aktualizacja
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 456--456
-[]|\T1/cmr/m/n/10.95 generator
+Underfull \hbox (badness 10000) in paragraph at lines 500--500
+\T1/cmr/m/n/10.95 nazwy jako klucza
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 456--456
+Underfull \hbox (badness 10000) in paragraph at lines 500--500
 []|\T1/cmr/m/n/10.95 wygenerowanie atrybutów
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 456--456
+Underfull \hbox (badness 10000) in paragraph at lines 500--500
 \T1/cmr/m/n/10.95 kalendarzowych oraz flag
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 456--456
-[]|\T1/cmr/m/n/10.95 kopiowanie pól pogodowych,
- []
-
-
-Overfull \hbox (16.42824pt too wide) in paragraph at lines 456--456
+Overfull \hbox (7.89232pt too wide) in paragraph at lines 500--500
 []|\T1/cmtt/m/n/10.95 FactPowerPlantOutput| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 456--456
-[]|\T1/cmr/m/n/10.95 PSE
+Underfull \hbox (badness 10000) in paragraph at lines 500--500
+[]|\T1/cmr/m/n/10.95 agregacja produkcji po
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 456--456
-\T1/cmtt/m/n/10.95 energy-prices\T1/cmr/m/n/10.95 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 456--456
-\T1/cmtt/m/n/10.95 rce-pln\T1/cmr/m/n/10.95 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 456--456
+Underfull \hbox (badness 10000) in paragraph at lines 500--500
 \T1/cmr/m/n/10.95 forecast, load
  []
 
-[12] [13]
-Underfull \hbox (badness 2495) in paragraph at lines 502--503
+
+Underfull \hbox (badness 10000) in paragraph at lines 500--500
+[]|\T1/cmr/m/n/10.95 agregacja do kwadransa;
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 500--500
+\T1/cmr/m/n/10.95 ±rednia dla cen i
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 500--500
+\T1/cmr/m/n/10.95 zapotrzebowania, suma
+ []
+
+[13] [14]
+Underfull \hbox (badness 2495) in paragraph at lines 546--547
 []\T1/cmr/m/n/12 atrybuty elektrowni: nazwa, kategoria, województwo, wspóªrz¦dn
 e geograficzne,
  []
 
 
-Underfull \hbox (badness 3815) in paragraph at lines 508--509
+Underfull \hbox (badness 3815) in paragraph at lines 552--553
 \T1/cmr/m/n/12 Warstwa raportowa zostaªa zaimplementowana w pliku \T1/cmtt/m/n/
 12 business.pbix \T1/cmr/m/n/12 jako siedem
  []
 
-<img//pbi_1_przeglad.png, id=59, 1076.52188pt x 545.78906pt>
+<img//pbi_1_przeglad.png, id=65, 1076.52188pt x 545.78906pt>
 File: img//pbi_1_przeglad.png Graphic file (type png)
 <use img//pbi_1_przeglad.png>
-Package pdftex.def Info: img//pbi_1_przeglad.png  used on input line 520.
+Package pdftex.def Info: img//pbi_1_przeglad.png  used on input line 564.
 (pdftex.def)             Requested size: 483.69687pt x 245.22804pt.
-[14]
-<img//pbi_2_rynek.png, id=65, 1081.03876pt x 590.205pt>
+[15]
+<img//pbi_2_rynek.png, id=70, 1081.03876pt x 590.205pt>
 File: img//pbi_2_rynek.png Graphic file (type png)
 <use img//pbi_2_rynek.png>
-Package pdftex.def Info: img//pbi_2_rynek.png  used on input line 533.
+Package pdftex.def Info: img//pbi_2_rynek.png  used on input line 577.
 (pdftex.def)             Requested size: 483.69687pt x 264.07681pt.
- [15 <./img//pbi_1_przeglad.png>]
-<img//pbi_3_pogoda.png, id=70, 1075.01625pt x 606.01407pt>
+ [16 <./img//pbi_1_przeglad.png>]
+<img//pbi_3_pogoda.png, id=75, 1075.01625pt x 606.01407pt>
 File: img//pbi_3_pogoda.png Graphic file (type png)
 <use img//pbi_3_pogoda.png>
-Package pdftex.def Info: img//pbi_3_pogoda.png  used on input line 545.
+Package pdftex.def Info: img//pbi_3_pogoda.png  used on input line 589.
 (pdftex.def)             Requested size: 483.69687pt x 272.66682pt.
- [16 <./img//pbi_2_rynek.png>]
-<img//pbi_4_ceny.png, id=75, 1080.28593pt x 606.01407pt>
+ [17 <./img//pbi_2_rynek.png>]
+<img//pbi_4_ceny.png, id=80, 1080.28593pt x 606.01407pt>
 File: img//pbi_4_ceny.png Graphic file (type png)
 <use img//pbi_4_ceny.png>
-Package pdftex.def Info: img//pbi_4_ceny.png  used on input line 559.
+Package pdftex.def Info: img//pbi_4_ceny.png  used on input line 603.
 (pdftex.def)             Requested size: 483.69687pt x 271.33525pt.
- [17 <./img//pbi_3_pogoda.png>]
-Underfull \hbox (badness 1997) in paragraph at lines 566--567
+ [18 <./img//pbi_3_pogoda.png>]
+Underfull \hbox (badness 1997) in paragraph at lines 610--611
 []\T1/cmr/m/it/12 Wspóªczynnik wykorzystania w czasie \T1/cmr/m/n/12 - wykres k
 olumnowy miary \T1/cmtt/m/n/12 Wspóªczynnik
  []
 
 
-Underfull \hbox (badness 3039) in paragraph at lines 567--568
+Underfull \hbox (badness 3039) in paragraph at lines 611--612
 []\T1/cmr/m/it/12 ‘rednia prawdziwego obci¡»enia [MW] wg Dzie« tygodnia \T1/cmr
 /m/n/12 - wykres kolumnowy
  []
 
-<img//pbi_5_wzorce.png, id=80, 1053.9375pt x 607.51968pt>
+<img//pbi_5_wzorce.png, id=85, 1053.9375pt x 607.51968pt>
 File: img//pbi_5_wzorce.png Graphic file (type png)
 <use img//pbi_5_wzorce.png>
-Package pdftex.def Info: img//pbi_5_wzorce.png  used on input line 571.
+Package pdftex.def Info: img//pbi_5_wzorce.png  used on input line 615.
 (pdftex.def)             Requested size: 483.69687pt x 278.82281pt.
-[18 <./img//pbi_4_ceny.png>]
-<img//pbi_6_geografia.png, id=85, 1042.64531pt x 606.76688pt>
+[19 <./img//pbi_4_ceny.png>]
+<img//pbi_6_geografia.png, id=91, 1042.64531pt x 606.76688pt>
 File: img//pbi_6_geografia.png Graphic file (type png)
 <use img//pbi_6_geografia.png>
-Package pdftex.def Info: img//pbi_6_geografia.png  used on input line 585.
+Package pdftex.def Info: img//pbi_6_geografia.png  used on input line 629.
 (pdftex.def)             Requested size: 483.69687pt x 281.48633pt.
- [19 <./img//pbi_5_wzorce.png>]
-<img//pbi_7_pogoda.png, id=91, 1065.22969pt x 595.47469pt>
+ [20 <./img//pbi_5_wzorce.png>]
+<img//pbi_7_pogoda.png, id=96, 1065.22969pt x 595.47469pt>
 File: img//pbi_7_pogoda.png Graphic file (type png)
 <use img//pbi_7_pogoda.png>
-Package pdftex.def Info: img//pbi_7_pogoda.png  used on input line 599.
+Package pdftex.def Info: img//pbi_7_pogoda.png  used on input line 643.
 (pdftex.def)             Requested size: 483.69687pt x 270.38715pt.
 
-Underfull \hbox (badness 1303) in paragraph at lines 596--601
+Underfull \hbox (badness 1303) in paragraph at lines 640--645
 \T1/cmr/m/n/12 jest autorska miara DAX \T1/cmtt/m/n/12 ‘rednia moc wg pogody\T1
 /cmr/m/n/12 , która za pomoc¡ funkcji \T1/cmtt/m/n/12 TREATAS
  []
 
-[20 <./img//pbi_6_geografia.png>]
-Underfull \hbox (badness 3375) in paragraph at lines 615--616
+[21 <./img//pbi_6_geografia.png>]
+Underfull \hbox (badness 3375) in paragraph at lines 659--660
 \T1/cmr/m/n/12 Kontrola jako±ci i kompletno±ci ªadowa« realizowana jest w warst
 wie SQL (tabela
  []
 
-[21 <./img//pbi_7_pogoda.png>]
-Underfull \hbox (badness 2073) in paragraph at lines 621--622
+[22 <./img//pbi_7_pogoda.png>]
+Underfull \hbox (badness 2073) in paragraph at lines 665--666
 []\T1/cmr/bx/n/12 Skrypt modelu hurtowni\T1/cmr/m/n/12 : \T1/cmtt/m/n/12 sql_he
 lp/00_Create_PowerDWH_empty.sql \T1/cmr/m/n/12 - baza,
  []
 
 
-Underfull \hbox (badness 3623) in paragraph at lines 621--622
+Underfull \hbox (badness 3623) in paragraph at lines 665--666
 \T1/cmr/m/n/12 schematy \T1/cmtt/m/n/12 etl\T1/cmr/m/n/12 /\T1/cmtt/m/n/12 stg\
 T1/cmr/m/n/12 , tabele wymiarów, faktów i staging, klucze obce, indeksy
  []
 
 
-Underfull \hbox (badness 5637) in paragraph at lines 621--622
+Underfull \hbox (badness 5637) in paragraph at lines 665--666
 \T1/cmr/m/n/12 oraz procedura \T1/cmtt/m/n/12 etl.usp_Load_DimPowerPlant \T1/cm
 r/m/n/12 (jej aktualna wersja równie» w
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 622--623
+Underfull \hbox (badness 10000) in paragraph at lines 666--667
 []\T1/cmr/bx/n/12 Skrypty kontroli jako±ci i audytu\T1/cmr/m/n/12 : \T1/cmtt/m/
 n/12 sql_help/DataQuality_checks.sql\T1/cmr/m/n/12 ,
  []
 
 
-Underfull \hbox (badness 7397) in paragraph at lines 625--626
+Underfull \hbox (badness 7397) in paragraph at lines 670--671
 []\T1/cmr/bx/n/12 Pakiety SSIS\T1/cmr/m/n/12 : \T1/cmtt/m/n/12 Master.dtsx\T1/c
 mr/m/n/12 , \T1/cmtt/m/n/12 Load_DimTime.dtsx\T1/cmr/m/n/12 , \T1/cmtt/m/n/12 L
 oad_DimPowerPlant.dtsx\T1/cmr/m/n/12 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 625--626
+Underfull \hbox (badness 10000) in paragraph at lines 670--671
 \T1/cmtt/m/n/12 Load_FactPolandEnergy.dtsx\T1/cmr/m/n/12 , \T1/cmtt/m/n/12 Load
 _FactPowerPlantOutput.dtsx\T1/cmr/m/n/12 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 626--627
+Underfull \hbox (badness 10000) in paragraph at lines 671--672
 []\T1/cmr/bx/n/12 Dane referencyjne\T1/cmr/m/n/12 : \T1/cmtt/m/n/12 powerplant_
 meta.csv\T1/cmr/m/n/12 , \T1/cmtt/m/n/12 DimTime.csv\T1/cmr/m/n/12 , pliki GeoJ
 SON
  []
 
-[22] (./KM2_Dubois_Gajda_Sprawozdanie.aux) ) 
+[23] (./KM2_Dubois_Gajda_Sprawozdanie.aux) ) 
 Here is how much of TeX's memory you used:
- 3409 strings out of 480247
- 55470 string characters out of 5896151
- 371909 words of memory out of 5000000
- 21322 multiletter control sequences out of 15000+600000
+ 3415 strings out of 480247
+ 55544 string characters out of 5896151
+ 374929 words of memory out of 5000000
+ 21328 multiletter control sequences out of 15000+600000
  483813 words of font info for 59 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  55i,11n,62p,1364b,313s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -840,13 +828,15 @@ p/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/joz
 iop/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/j
 oziop/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home
 /joziop/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm2074.600pk></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on KM2_Dubois_Gajda_Sprawozdanie.pdf (22 pages, 1420653 bytes).
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on KM2_Dubois_Gajda_Sprawozdanie.pdf (23 pages, 1450362 bytes).
 PDF statistics:
- 807 PDF objects out of 1000 (max. 8388607)
- 120 compressed objects within 2 object streams
+ 849 PDF objects out of 1000 (max. 8388607)
+ 128 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
